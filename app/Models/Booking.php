@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\TourPackage;
+use App\Models\PaymentMethod;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class PaymentMethod extends Model
+class Booking extends Model
 {
+    protected $table = 'bookings';
     use HasFactory;
-
-    protected $table = 'payment_methods';
-
     protected $guarded = [];
 
     public function user()
@@ -19,13 +19,13 @@ class PaymentMethod extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function createdBy()
+    public function tourPackage()
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(TourPackage::class);
     }
 
-    public function updatedBy()
+    public function paymentMethod()
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo(PaymentMethod::class);
     }
 }
