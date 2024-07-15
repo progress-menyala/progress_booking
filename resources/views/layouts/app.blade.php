@@ -319,12 +319,12 @@
                                 <!--Logo-->
                                 <div class="footer-gallery">
                                     <div class="inner clearfix">
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-1.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-1.jpg" alt=""></a></div></div>
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-2.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-2.jpg" alt=""></a></div></div>
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-3.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-3.jpg" alt=""></a></div></div>
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-4.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-4.jpg" alt=""></a></div></div>
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-5.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-5.jpg" alt=""></a></div></div>
-                                        <div class="image-block"><div class="image"><a href="images/resource/footer-thumb-6.jpg" class="lightbox-image"><img src="images/resource/footer-thumb-6.jpg" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-1.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-1.jpg') }}" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-2.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-2.jpg') }}" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-3.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-3.jpg') }}" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-4.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-4.jpg') }}" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-5.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-5.jpg') }}" alt=""></a></div></div>
+                                        <div class="image-block"><div class="image"><a href="{{ asset('storage/images/resource/footer-thumb-6.jpg') }}" class="lightbox-image"><img src="{{ asset('storage/images/resource/footer-thumb-6.jpg') }}" alt=""></a></div></div>
                                     </div>
                                 </div>
                             </div>

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tour;
-use App\Models\TourPackage;
+use App\Models\TourPackage as Tour;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
@@ -13,7 +12,7 @@ class TourController extends Controller
      */
     public function index()
     {
-        $tours = TourPackage::all();
+        $tours = Tour::all();
         return view('frontpage.tours.index', compact('tours'));
     }
 
@@ -38,7 +37,8 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
-        //
+        // dd($tour);
+        return view('frontpage.tours.detail');
     }
 
     /**

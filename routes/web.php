@@ -12,4 +12,5 @@ Route::get('/', function () {
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/about/faq', [AboutController::class, 'faq']);
 
-Route::resource('/tours', TourController::class);
+Route::get('/tours', [TourController::class, 'index']);
+Route::get('/tours/{tour}', [TourController::class, 'show']);
