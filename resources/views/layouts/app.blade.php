@@ -73,8 +73,6 @@
                                     </li>
                                     <li class="dropdown"><a href="about.html">About Us</a>
                                         <ul>
-                                            <li><a href="team.html">Our Team</a></li>
-                                            <li><a href="team-member.html">Team Member</a></li>
                                             <li><a href="faq.html">FAQs</a></li>
                                             <li><a href="gallery.html">Gallery</a></li>
                                         </ul>
@@ -83,35 +81,11 @@
                                         <ul>
                                             <li><a href="shop.html">Our Shop</a></li>
                                             <li><a href="product-single.html">Product Details</a></li>
-                                            <li><a href="wishlist.html">My Wishlist</a></li>
                                             <li><a href="shopping-cart.html">Shopping Cart</a></li>
                                             <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="signup.html">Signup</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="reset-password.html">Forgot Password</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="destinations.html">Destinations</a></li>
-                                    <li><a href="trekking.html">Trekking</a></li>
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                        <ul>
-                                            <li><a href="activities.html">Activities</a></li>
-                                            <li><a href="destinations-2.html">Destinations 02</a></li>
-                                            <li><a href="tours.html">Tours</a></li>
-                                            <li><a href="packages.html">Packages 01</a></li>
-                                            <li><a href="packages-2.html">Packages 02</a></li>
-                                            <li><a href="booking.html">Booking</a></li>
-                                            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                                            <li><a href="error-page.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="blog.html">News</a>
-                                        <ul>
-                                            <li><a href="blog.html">Our Blog</a></li>
-                                            <li><a href="blog-2.html">Blog Classic</a></li>
-                                            <li><a href="blog-single.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
