@@ -80,9 +80,7 @@
                                     <li class="dropdown"><a href="shop.html">Shop</a>
                                         <ul>
                                             <li><a href="shop.html">Our Shop</a></li>
-                                            <li><a href="product-single.html">Product Details</a></li>
                                             <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="destinations.html">Destinations</a></li>

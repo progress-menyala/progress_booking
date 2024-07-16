@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TourPackage as Tour;
 use Illuminate\Http\Request;
+use App\Models\TourPackage as Tour;
+use Illuminate\View\View;
 
 class TourController extends Controller
 {
@@ -21,7 +22,7 @@ class TourController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,11 +36,12 @@ class TourController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tour $tour)
+    public function show(Tour $tour):View
     {
         // dd($tour);
         return view('frontpage.tours.detail');
     }
+
 
     /**
      * Show the form for editing the specified resource.
