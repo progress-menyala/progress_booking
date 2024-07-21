@@ -57,7 +57,7 @@
                 <div class="main-box clearfix">
                     <!--Logo-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html" title="Treker"><img src="{{ asset('storage/images/logo.svg') }}" alt="" title="Treker"></a></div>
+                        <div class="logo"><a href="/" title="Treker"><img src="{{ asset('storage/images/logo.svg') }}" alt="" title="Treker"></a></div>
                     </div>
         
                     <div class="nav-box clearfix">
@@ -65,26 +65,17 @@
                         <div class="nav-outer clearfix">         
                             <nav class="main-menu">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="index.html">Home</a>
+                                    <li class="current dropdown"><a href="/">Home</a></li>
+                                    <li class="dropdown"><a href="/about">About Us</a>
                                         <ul>
-                                            <li><a href="index.html">Home 01</a></li>
-                                            <li><a href="index-2.html">Home 02</a></li>
+                                            <li><a href="/about/faq">FAQs</a></li>
+                                            {{-- <li><a href="gallery.html">Gallery</a></li> --}}
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="about.html">About Us</a>
-                                        <ul>
-                                            <li><a href="faq.html">FAQs</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                        </ul>
+                                    <li class="dropdown"><a href="/tours">Packages Tour</a>
                                     </li>
-                                    <li class="dropdown"><a href="shop.html">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Our Shop</a></li>
-                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="destinations.html">Destinations</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/destination">Destinations</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- Main Menu End-->

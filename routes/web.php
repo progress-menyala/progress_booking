@@ -1,14 +1,15 @@
 <?php
 
+use App\Models\Destination;
+use App\Models\OrganizerProfile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizersController;
-use App\Models\Destination;
-use App\Models\OrganizerProfile;
+use App\Http\Controllers\DestinationController;
 
 Route::get('/', function () {
     return view('home');
@@ -29,3 +30,5 @@ Route::post('/checkout', [BookingController::class, 'store'])->name('checkout.st
 
 Route::get('/destination', [DestinationController::class, 'index']);
 Route::get('/destination/{id}', [DestinationController::class, 'show']);
+
+Route::get('/contact', [ContactController::class, 'index']);
