@@ -16,4 +16,9 @@ class TourPackage extends Model
     {
         return $this->belongsTo(OrganizerProfile::class);
     }
+
+    public function featuredTours()
+    {
+        return $this->hasMany(FeaturedTour::class, 'tour_packages_id');
+    }
 }

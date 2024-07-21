@@ -36,7 +36,9 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        //
+        return view('frontpage.destination.show', [
+            'destination' => $destination
+        ]);
     }
 
     /**

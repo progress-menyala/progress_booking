@@ -18,8 +18,8 @@
                                         <h1><span>Exploring</span></h1>
                                         <div class="text">Their house is a museum where people come to see ‘em. They really are a scream the Addams Family. These days are all Happy and Free. These days are all share them with me oh baby.</div>
                                         <div class="links-box clearfix">
-                                            <div class="link"><a href="#" class="theme-btn btn-style-one"><span>View All Tours<i class="icon"><img src="storage/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
-                                            <div class="link"><a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image"><i class="ripple"></i><span class="icon"><img src="storage/images/icons/video-icon-1.svg" alt="" title=""></span></a></div>
+                                            <div class="link"><a href="/tours" class="theme-btn btn-style-one"><span>View All Tours<i class="icon"><img src="storage/images/icons/logo-icon.svg" alt="" title=""></i></span></a></div>
+                                            <div class="link"><a href="https://youtu.be/IriHJJWdN1Y?si=SFbc2IZJLKp0UL53" class="theme-btn lightbox-image"><i class="ripple"></i><span class="icon"><img src="storage/images/icons/video-icon-1.svg" alt="" title=""></span></a></div>
                                         </div>
                                     </div>
                                     
@@ -60,8 +60,8 @@
                                     </ul>
                                 </div>
                                 <div class="image-box">
-                                    <img src="storage/images/resource/about-image-2.jpg" alt="" title="">
-                                    <a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image overlink"><span class="icon fa fa-play"></span></a>
+                                    <img src="{{ asset('storage/images/resource/about-image-2.jpg') }}" alt="" title="">
+                                    <a href="https://youtu.be/IriHJJWdN1Y?si=SFbc2IZJLKp0UL53" class="theme-btn lightbox-image overlink"><span class="icon fa fa-play"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -92,266 +92,33 @@
             </div>
             <div class="carousel-box">
                 <div class="popular-carousel owl-theme owl-carousel">
-				
-                    <!-- Block -->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-1.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Moscow Red City Land</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
-                                    <div class="rev"><a href="#">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-2.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Yellowstone & Mt Rushm</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-3.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="#">Los Angeles to San Franc</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Block -->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-1.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Moscow Red City Land</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
-                                    <div class="rev"><a href="#">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-2.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Yellowstone & Mt Rushm</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star empty"></i>
-                                    </div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
                     
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-3.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="#">Los Angeles to San Franc</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star empty"></i>
+                    @foreach ($destinations as $destination)    
+                        {{-- @dd($destination->images[0]) --}}
+                        <!-- Block -->
+                        <div class="trek-block-one">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <div class="image"><a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->images[0]) }}" alt="" title=""></a></div>
+                                    <div class="info">
+                                        <span class="i-block">{{ $destination->location }}</span>
                                     </div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
                                 </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
+                                <div class="lower-content">
+                                    <h4><a href="/destination/{{ $destination->id }}">{{ $destination->name }}</a></h4>
+                                    <div class="ratings clearfix">
+                                        <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
+                                        <div class="rev"><a href="#">05 Review</a></div>
+                                    </div>
+                                    <div class="text">{{ $destination->description }}</div>
+                                </div>
+                                <div class="bottom-box clearfix">
+                                    <div class="more-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
+                                    <div class="video-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-					
-					<!-- Block -->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-1.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Moscow Red City Land</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star empty"></i>
-                                    </div>
-                                    <div class="rev"><a href="#">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-2.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="packages.html">Yellowstone & Mt Rushm</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star empty"></i>
-                                    </div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <!--Block-->
-                    <div class="trek-block-one">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="packages.html"><img src="{{ asset('storage/images/resource/f-image-3.jpg') }}" alt="" title=""></a></div>
-                                <div class="price"><span>$120</span></div>
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="#">Los Angeles to San Franc</a></h4>
-                                <div class="ratings clearfix">
-                                    <div class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star empty"></i>
-                                    </div>
-                                    <div class="rev"><a href="packages.html">05 Review</a></div>
-                                </div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you.</div>
-                            </div>
-                            <div class="bottom-box clearfix">
-                                <div class="more-link"><a href="packages.html" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                <div class="video-link"><a href="packages.html" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    @endforeach
 
                 </div>
             </div>
@@ -432,7 +199,7 @@
     
 
     <!--Trending Destinations Section-->
-    <section class="trending-destinations">
+    {{-- <section class="trending-destinations">
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Top Destinations</div>
@@ -528,11 +295,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     
 
     <!--Products Section-->
-    <section class="products-section">
+    {{-- <section class="products-section">
         <div class="floated-icon left"><img src="{{ asset('storage/images/resource/stones-left.svg') }}" alt="" title=""></div>
         <div class="floated-icon right"><img src="{{ asset('storage/images/resource/stones-right.svg') }}" alt="" title=""></div>
         <div class="auto-container">
@@ -740,7 +507,7 @@
             <div class="see-more-link"><a href="shop.html" class="theme-btn btn-style-one"><span>View All Products <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
         </div>
     </section>
-    
+     --}}
 
     <!--Group Travel Section-->
     <section class="group-travel">
@@ -749,31 +516,32 @@
             <div class="content-box">
                 <div class="row clearfix">
                     <!--Block-->
+                    {{-- @dd($/) --}}
                     <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-box">
-                            <div class="title"><h4>Group Travel to Himalay</h4></div>
+                            <div class="title"><h4>{{ $featured[0]->tourPackage->name }}</h4></div>
                             <div class="content">
                                 <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                                    <span class="i-block"><i class="icon far fa-clock"></i> {{ $featured[0]->tourPackage->date   }}</span> &ensp;
                                 </div>
-                                <div class="price"><span>$235.00</span></div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                                <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
+                                <div class="price"><span>Rp. {{ $featured[0]->tourPackage->price }}</span></div>
+                                <div class="text">{{ $featured[0]->tourPackage->description }}</div>
+                                <div class="link-box"><a href="/checkout/{{ $featured[0]->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
                             </div>
                         </div>
                     </div>
     
                     <!--Block-->
-                    <div class="travel-block-one alternate col-lg-6 col-md-12 col-sm-12">
+                    <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-box">
-                            <div class="title"><h4>Group Travel to Himalay</h4></div>
+                            <div class="title"><h4>{{ $featured[1]->tourPackage->name }}</h4></div>
                             <div class="content">
                                 <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> 5 days</span> &ensp; | &ensp; <span class="i-block">259P, Himalaya Ag</span>
+                                    <span class="i-block"><i class="icon far fa-clock"></i> {{ $featured[1]->tourPackage->date   }}</span> &ensp;
                                 </div>
-                                <div class="price"><span>$235.00</span></div>
-                                <div class="text">Richly varied landscapes, luxurious accommodation and a wide range of wild experiences await you. </div>
-                                <div class="link-box"><a href="#" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
+                                <div class="price"><span>Rp. {{ $featured[1]->tourPackage->price }}</span></div>
+                                <div class="text">{{ $featured[1]->tourPackage->description }}</div>
+                                <div class="link-box"><a href="/checkout/{{ $featured[1]->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
                             </div>
                         </div>
                     </div>
@@ -785,7 +553,7 @@
     
 
     <!--Testimonials Section-->
-    <section class="testimonials-one">
+    {{-- <section class="testimonials-one">
         <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-3.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
@@ -881,11 +649,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     
 
     <!--Sponsors Section-->
-    <section class="sponsors-one">
+    {{-- <section class="sponsors-one">
         <div class="auto-container">
             <div class="carousel-box">
                 <div class="sponsors-carousel owl-theme owl-carousel">
@@ -949,7 +717,7 @@
             </div>
         </div>
     </section>
-    
+     --}}
 
     <!--News Section-->
     <section class="news-section">
@@ -1019,7 +787,6 @@
         </div>
     </section>
     
-
     <!--Subscribe Section-->
     <section class="subscribe-section">
         <div class="auto-container">

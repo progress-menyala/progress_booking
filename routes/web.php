@@ -10,11 +10,14 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizersController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('wellcome');
 });
 
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/about/faq', [AboutController::class, 'faq']);
