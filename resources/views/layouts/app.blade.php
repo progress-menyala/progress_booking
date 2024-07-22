@@ -322,6 +322,7 @@
     <script src="{{ asset('js/mixitup.js') }}"></script>
     <script src="{{ asset('js/isotope.js') }}"></script>
     <script src="{{ asset('js/touchspin.js') }}"></script>
+    <script src="{{ asset('js/bxslider.js') }}"></script>
     <script src="{{ asset('js/owl.js') }}"></script>
     <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/custom-script.js') }}"></script>

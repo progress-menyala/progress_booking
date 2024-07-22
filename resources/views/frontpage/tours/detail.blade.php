@@ -20,7 +20,7 @@
     <!--End Banner Section -->
 
     <!-- product-details -->
-    {{-- <section class="product-details">
+    <section class="product-details">
         <div class="auto-container">
             <div class="basic-details">
                 <div class="row clearfix">
@@ -72,36 +72,26 @@
                     </div>
                     <div class="content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="product-details-content">
-                            <div class="avail"><span>In Stock</span></div>
-                            <h4>Smart Air Bag Travel</h4>
-                            <ul class="rating-box clearfix">
+                            <div class="avail"><span>Available</span></div>
+                            <h4>{{ $tour->name }}</h4>
+                            <ul class="rating-box clearfix p-0">
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
                                 <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star empty"></i></li>
+                                <li><i class="fas fa-star"></i></li>
                             </ul>
-                            <div class="reviews"><a href="#">(05 Review)</a></div>
-                            <div class="item-price"><span>$225.00</span></div>
-                            <div class="share"><a href="shop-single.html"><i class="flaticon-share-1"></i></a></div>
-                            <div class="text">Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</div>
-                            <div class="color-range clearfix">
-                                <div class="c-title">Color :</div>
-                                <div class="colors clearfix"><span class="clr clr-one"></span><span class="clr clr-two"></span><span class="clr clr-three"></span><span class="clr clr-four"></span></div>
-                            </div>
+                            <div class="item-price"><span>Rp. {{ $tour->price }}</span></div>
+                            {{-- <div class="share"><a href="shop-single.html"><i class="flaticon-share-1"></i></a></div> --}}
+                            <div class="text">{!! $tour->description  !!}</div>
                             <div class="other-options clearfix">
-                                <div class="quantity-box">
-                                    <div class="item-quantity">
-                                        <input class="qty-spinner" type="text" value="1" name="quantity">
-                                    </div>
-                                </div>
                                 <div class="link-box">
-                                    <button type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i> &ensp; Add To Cart</span></button>
-                                    <button type="button" class="theme-btn add-wishlist"><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button>
+                                    <button type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i>Booking Tour</span></button>
+                                    {{-- <button type="button" class="theme-btn add-wishlist"><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button> --}}
                                 </div>
                             </div>
-                            <div class="product-cat"><strong>Categories :</strong> <a href="#">Bags</a>, <a href="#">Travel Bags</a>, <a href="#">Tracking Bags</a></div>
-                            <div class="product-cat tags"><strong>Tags :</strong> <a href="#">Bags</a>, <a href="#">Travel</a>, <a href="#">Tracking</a></div>
+                            {{-- <div class="product-cat"><strong>Categories :</strong> <a href="#">Bags</a>, <a href="#">Travel Bags</a>, <a href="#">Tracking Bags</a></div>
+                            <div class="product-cat tags"><strong>Tags :</strong> <a href="#">Bags</a>, <a href="#">Travel</a>, <a href="#">Tracking</a></div> --}}
                         </div>
                     </div>
                 </div>
@@ -118,7 +108,7 @@
                         <div class="tab active-tab" id="tab-1">
                             <div class="text text-content">
                                 <h5>Product Description</h5>
-                                <p>There are many reasons why an executive or VIP would choose personal security services. Executives could be in charge of large companies that are worth millions or more, leaving them to be a high-valued target for robbery, assault, and more. There could be threats made against executives and even bribery and blackmail from a member of the public or disgruntled employees. When it comes to other VIPs, they do not need necessarily need to be..</p>
+                                <p>{!! $tour->description !!}</p>
                                 <h5>Product Features</h5>
                                 <ul>
                                     <li>Free Download Instagram Logo</li>
@@ -191,7 +181,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- product-details end -->
 
     <!--Related Products Section-->
@@ -204,177 +194,33 @@
             </div>
             <div class="carousel-box">
                 <div class="rel-prod-carousel owl-theme owl-carousel">
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-5.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
+
+                    @foreach ($tours as $tour)
+                        <!--Block-->
+                        <div class="prod-block">
+                            <div class="inner-box">
+                                <div class="why-block">
+                                    <div class="image-box">
+                                        <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/images/resource/shop/prod-5.jpg') }}" alt=""></a></div>
+                                        <div class="hvr-box">
+                                            <div class="hvr-inner">
+                                                <div class="hvr-content">
+                                                    <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
+                                                    <div class="link"><a href="/tours/{{ $tour->id }}" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
+                                                </div>
                                             </div>
                                         </div>
+                                        {{-- <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div> --}}
                                     </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Set of Black Silk Pillow</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-6.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
+                                    <div class="lower-box">
+                                        <h5><a href="/tours/{{ $tour->id }}">{{ $tour->name }}</a></h5>
+                                        <div class="price"><span>Rp. {{ $tour->price }}</span></div>
                                     </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
                                 </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travel Slipping Support</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
+
                             </div>
-
                         </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-7.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travelling Black Suitcase</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-8.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travelling Black Suitcase</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-1.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travelling Black Suitcase</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-2.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travelling Black Suitcase</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Block-->
-                    <div class="prod-block">
-                        <div class="inner-box">
-                            <div class="why-block">
-                                <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/shop/prod-3.jpg') }}" alt=""></a></div>
-                                    <div class="hvr-box">
-                                        <div class="hvr-inner">
-                                            <div class="hvr-content">
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
-                                                <div class="link"><a href="#" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
-                                </div>
-                                <div class="lower-box">
-                                    <h5><a href="#">Travelling Black Suitcase</a></h5>
-                                    <div class="price"><span>$225.00</span></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    @endforeach
 
                 </div>
             </div>
