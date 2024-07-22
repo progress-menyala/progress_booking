@@ -12,7 +12,10 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return view('frontpage.destination.index');
+        $destinations = Destination::all();
+        return view('frontpage.destination.index', [
+            'destinations' => $destinations
+        ]);
     }
 
     /**
@@ -36,6 +39,7 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
+        // dd($destination);
         return view('frontpage.destination.show', [
             'destination' => $destination
         ]);

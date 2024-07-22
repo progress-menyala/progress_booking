@@ -29,116 +29,23 @@
             </div>
             <!--MixitUp Galery-->
             <div class="mixitup-gallery">
-                <!--Filter-->
-                <div class="gallery-filters centered clearfix">
-                    <ul class="filter-tabs filter-btns clearfix">
-                        <li class="active filter" data-role="button" data-filter="all">All</li>
-                        <li class="filter" data-role="button" data-filter=".europe">Europe</li>
-                        <li class="filter" data-role="button" data-filter=".asia">Asia</li>
-                        <li class="filter" data-role="button" data-filter=".s-america">South America</li>
-                        <li class="filter" data-role="button" data-filter=".n-america">North America</li>
-                        <li class="filter" data-role="button" data-filter=".africa">Africa</li>
-                        <li class="filter" data-role="button" data-filter=".australia">Australia</li>
-                    </ul>
-                </div>
                 <div class="filter-list row clearfix">
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-7.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-8.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
+
+                    @foreach ($destinations as $destination)
+                        <!--Block-->
+                        <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-7.jpg') }}" alt="" title=""></a></div>
+                                </div>
+                                <div class="count"><span>Available</span></div>
+                                <div class="title clearfix">
+                                    <h4><a href="">{{ $destination->name }}</a></h4>
+                                    <div class="more-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-1.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-2.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-3.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-4.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Block-->
-                    <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/tour-5.jpg') }}" alt="" title=""></a></div>
-                            </div>
-                            <div class="count"><span>6 Tours</span></div>
-                            <div class="title clearfix">
-                                <h4><a href="#">Rajasthan</a></h4>
-                                <div class="more-link"><a href="#" class="theme-btn"><span class="far fa-long-arrow-right"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
 

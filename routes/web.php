@@ -32,6 +32,6 @@ Route::get('/checkout', [BookingController::class, 'index'])->name('checkout.ind
 Route::post('/checkout', [BookingController::class, 'store'])->name('checkout.store');
 
 Route::get('/destination', [DestinationController::class, 'index']);
-Route::get('/destination/{id}', [DestinationController::class, 'show']);
+Route::get('/destination/{destination}', [DestinationController::class, 'show']);
 
 Route::get('/contact', [ContactController::class, 'index']);
