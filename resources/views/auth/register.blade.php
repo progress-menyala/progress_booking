@@ -1,5 +1,7 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+<x-app-layout>
+    {{-- @include('components.banner', ['title' => 'Login', 'subtitle' => '']) --}}
+
+    {{-- <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <!-- Name -->
@@ -48,5 +50,63 @@
                 {{ __('Register') }}
             </x-primary-button>
         </div>
-    </form>
-</x-guest-layout>
+    </form> --}}
+
+    <section class="signup-section mt-5">
+        <div class="auto-container">
+            <div class="form-box site-form">
+                <div class="signup-form">
+                    <h5>Sign Up</h5>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                
+                        <div class="row clearfix">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <div class="f-label">User Name <i>*</i></div>
+                                <div class="field-inner">
+                                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <div class="f-label">Email Address <i>*</i></div>
+                                <div class="field-inner">
+                                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <div class="f-label">Password <i>*</i></div>
+                                <div class="field-inner">
+                                    <x-text-input id="password" class="block mt-1 w-full"
+                                                    type="password"
+                                                    name="password"
+                                                    required autocomplete="new-password" />
+
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <div class="f-label">Re-Enter Password <i>*</i></div>
+                                <div class="field-inner">
+                                    <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                                    type="password"
+                                                    name="password_confirmation" required autocomplete="new-password" />
+
+                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <button type="submit" class="theme-btn btn-style-two"><span>Sign Up<i class="icon far fa-angle-right"></i></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="lower-link">Already have an account? <a href="/login">Login</a></div>
+            </div>
+        </div>
+    </section>
+
+</x-app-layout>

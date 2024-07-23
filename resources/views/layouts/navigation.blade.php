@@ -22,7 +22,7 @@
                                 <li><a href="#">Rus</a></li>
                             </ul>
                         </div>
-                        <div class="login"><i class="icon fa fa-user"></i> <a href="#">SIGN IN</a></div>
+                        <div class="login"><i class="icon fa fa-user"></i> <a href="/login">SIGN IN</a></div>
                     </div>
                 </div>
             </div>
