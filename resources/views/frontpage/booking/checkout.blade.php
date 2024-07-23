@@ -1,23 +1,7 @@
-@extends('layouts.app')
+<x-app-layout>
+    @include('components.banner', ['title' => 'Checkout', 'subtitle' => 'Form'])    
 
-@section('content')
-    <!-- Banner Section -->
-    <section class="inner-banner">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/banner-image-1.jpg') }});"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h2>Check Out</h2>
-                <div class="bread-crumb">
-                    <ul class="clearfix">
-                        <li><span class="icon-home fa fa-home"></span><a href="index.html">Home</a></li>
-                        <li class="current">Check Out</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Banner Section -->
-
+    {{-- @dd($booking) --}}
     <!--CheckOut Page-->
     <section class="checkout-page">
         <div class="auto-container">
@@ -148,10 +132,11 @@
                                 <h4 class="checkout-title">Your Order</h4>
                                 <div class="order-summary">
                                     <ul>
-                                        <li class="sum-head clearfix"><span class="ttl">Product</span> <span class="dtl">Subtotal</span></li>
-                                        <li class="prod clearfix"><span class="ttl">Smart Air Bag Travel</span> <span class="dtl">$225.00</span></li>
-                                        <li class="sub-total clearfix"><span class="ttl">Subtotal</span> <span class="dtl">$225.00</span></li>
-                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl">$225.00</span></li>
+                                        <li class="sum-head clearfix"><span class="ttl">Tour Packages</span> <span class="dtl">Subtotal</span></li>
+                                        <li class="prod clearfix"><span class="ttl">{{ $booking->name }}</span> <span class="dtl" id="price">Rp. {{ $booking->price }}</span></li>
+                                        <li class="prod clearfix"><span class="ttl">Pajak</span> <span class="dtl" id="tax">11%</span></li>
+                                        <li class="prod clearfix"><span class="ttl">Fee Payment</span> <span class="dtl" id="fee">5%</span></li>
+                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">$225.00</span></li>                                        
                                     </ul>
                                 </div>
                                 <!--Payment Options-->
@@ -194,4 +179,40 @@
         </div>
     </section>
     <!-- End Checkout Page -->
-@endsection
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const priceElement = document.getElementById('price');
+            const taxElement = document.getElementById('tax');
+            const feeElement = document.getElementById('fee');
+            const totalElement = document.getElementById('total');
+    
+            // // // Function to extract numeric value from string (e.g., "Rp. 1000" -> 1000)
+            // // function extractNumericValue(value) {
+            // //     return parseFloat(value.replace(/[^\d.-]/g, ''));
+            // // }
+    
+            // // Function to format number as currency (e.g., 1000 -> "Rp. 1,000.00")
+            // function formatCurrency(value) {
+            //     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(value);
+            // }
+    
+            // // Extract values
+            // const price = extractNumericValue(priceElement.textContent);
+            // const taxRate = extractNumericValue(taxElement.textContent) / 100;
+            // const feeRate = extractNumericValue(feeElement.textContent) / 100;
+    
+            // Calculate total
+            // const taxAmount = price * taxRate;
+            // const feeAmount = price * feeRate;
+            const total = priceElement + taxElement + feeElement;
+
+            // console.log(price);
+    
+            // Update total in HTML
+            totalElement.textContent = total;
+            console.log(total);
+        });
+    </script>
+    
+</x-app-layout>

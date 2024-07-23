@@ -12,7 +12,7 @@ class Booking extends Model
 {
     protected $table = 'bookings';
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function user()
     {

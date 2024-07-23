@@ -35,8 +35,10 @@ Route::get('/tours/{tour}', [TourController::class, 'show']);
 Route::get('/organizers', [OrganizersController::class, 'index']);
 Route::get('/organizers/{id}', [OrganizersController::class, 'show']);
 
-Route::get('/checkout', [BookingController::class, 'index'])->name('checkout.index');
+// Route::get('/checkout', [BookingController::class, 'index'])->name('checkout.index');
+Route::get('/checkout/{id}', [BookingController::class, 'index'])->name('checkout');
 Route::post('/checkout', [BookingController::class, 'store'])->name('checkout.store');
+Route::get('/checkout/{id}/payment', [BookingController::class, 'payment'])->name('checkout.payment');
 
 Route::get('/destination', [DestinationController::class, 'index']);
 Route::get('/destination/{destination}', [DestinationController::class, 'show']);

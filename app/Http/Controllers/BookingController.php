@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\TourPackage;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -9,9 +11,13 @@ class BookingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return view('frontpage.booking.index');
+        // dd($checkout);
+        $tour = TourPackage::find($id);
+        return view('frontpage.booking.cart', [
+            'tour' => $tour
+        ]);
     }
 
     /**
@@ -19,7 +25,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -27,7 +33,21 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());   
+        $request->validate([
+            'tour_package_id' => 'required',
+        ]);
+
+        Booking::create([
+            'user_id' => auth()->id(),
+            'tour_package_id' => $request->tour_package_id ?? null,
+            'payment_method_id' => $request->payment_method_id ?? null,
+            'booking_date' => now(),
+            'status' => 'hold',
+            'total' => $request->total ?? null,
+        ]);
+
+        return redirect()->route('checkout.payment');
     }
 
     /**
@@ -60,5 +80,12 @@ class BookingController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function payment($id)
+    {
+        return view('frontpage.booking.checkout', [
+            'booking' => TourPackage::find($id)
+        ]);
     }
 }
