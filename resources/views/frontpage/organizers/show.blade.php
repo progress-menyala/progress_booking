@@ -1,6 +1,6 @@
-@extends('layouts.app')
+<x-app-layout>
+    @include('components.banner', ['title' => 'Organizer', 'subtitle' => 'detail'])
 
-@section('content')
     <!-- Banner Section -->
     <section class="inner-banner">
         <div class="image-layer" style="background-image: url('{{ asset('storage/images/background/banner-image-1.jpg') }}');"></div>
@@ -102,4 +102,4 @@
             </div>
         </div>
     </section>
-@endsection
+</x-app-layout>

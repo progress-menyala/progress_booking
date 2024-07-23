@@ -1,17 +1,16 @@
-@extends('layouts.app')
+<x-app-layout>
+	@include('components.banner', ['title' => 'Destination', 'subtitle' => 'detail'])
 
-@section('content')
-
-  <!-- Banner Section -->
- <section class="inner-banner">
-    <div class="image-layer" style="background-image: url('{{ asset('storage/images/background/banner-image-1.jpg') }}');"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h2>Title</h2>
-        </div>
-    </div>
-</section>
-<!--End Banner Section -->
+	<!-- Banner Section -->
+	<section class="inner-banner">
+		<div class="image-layer" style="background-image: url('{{ asset('storage/images/background/banner-image-1.jpg') }}');"></div>
+		<div class="auto-container">
+			<div class="content-box">
+				<h2>Title</h2>
+			</div>
+		</div>
+	</section>
+	<!--End Banner Section -->
 
 	<!-- Package Detail Section -->
 	<section class="package-detail-section">
@@ -234,4 +233,4 @@
 	</section>
 	<!-- End Package Detail Section -->
 
-@endsection
+</x-app-layout>

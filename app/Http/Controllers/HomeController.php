@@ -11,12 +11,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $destination = Destination::all();
-        $featured_tour = FeaturedTour::with('tourPackage')->get();
+        $destinations = Destination::all();
+        $featured_tours = FeaturedTour::with('tourPackage')->get();
 
-        return view('home', [
-            'destinations' => $destination,
-            'featured' => $featured_tour
+        return view('dashboard', [
+            'destinations' => $destinations,
+            'featured' => $featured_tours
         ]);
     }
 }

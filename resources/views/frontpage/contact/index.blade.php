@@ -1,22 +1,6 @@
-@extends('layouts.app')
+<x-app-layout>
+    @include('components.banner', ['title' => 'Contact Us', 'subtitle' => 'index'])
 
-@section('content')
-    <!-- Banner Section -->
-    <section class="inner-banner">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/banner-image-1.jpg') }});"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h2>Contact</h2>
-                <div class="bread-crumb">
-                    <ul class="clearfix">
-                        <li><span class="icon-home fa fa-home"></span><a href="index.html">Home</a></li>
-                        <li class="current">Contact</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Banner Section -->
 
     <!--Contact Section-->
     <section class="contact-section">
@@ -194,4 +178,5 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.443278930481!2d55.30389370154939!3d25.25566963673736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43254acb00ad%3A0xdbc6ee1faaf3a3c6!2sBank%20Street%20Building%20-%20UBL%20Buidling%20Bur%20Dubai%2C%20Dubai%20-%20D79%20-%20Al%20Mankhool%20-%20Dubai!5e0!3m2!1sen!2sae!4v1636553029034!5m2!1sen!2sae" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </section>
-@endsection
+
+</x-app-layout>

@@ -1,22 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-    <!-- Banner Section -->
-    <section class="inner-banner">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/banner-image-1.jpg') }});"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h2>Tour Packages</h2>
-                <div class="bread-crumb">
-                    <ul class="clearfix">
-                        <li><span class="icon-home fa fa-home"></span><a href="/">Home</a></li>
-                        <li class="current">Tour Packages</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Banner Section -->
+<x-app-layout>
+    @include('components.banner', ['title' => 'Tour Packages', 'subtitle' => 'index'])
 
     <!--Products Section-->
     <section class="products-section products-page">
@@ -63,4 +46,4 @@
             <div class="see-more-link"><a href="#" class="theme-btn btn-style-one"><span>Load More......</span></a></div>
         </div>
     </section>
-@endsection
+</x-app-layout>
