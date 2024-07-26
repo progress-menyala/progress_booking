@@ -24,7 +24,7 @@ use App\Http\Controllers\DestinationController;
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/about/faq', [AboutController::class, 'faq']);

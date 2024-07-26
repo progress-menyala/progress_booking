@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\TourPackage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -33,21 +34,35 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());   
+        // dd($request->all()); 
+        $code = Str::random(5);  
         $request->validate([
             'tour_package_id' => 'required',
         ]);
 
         Booking::create([
-            'user_id' => auth()->id(),
-            'tour_package_id' => $request->tour_package_id ?? null,
+            'user_id' => $request->user_id ?? null,
+            'tour_package_id' => $request->tour_package_id,
             'payment_method_id' => $request->payment_method_id ?? null,
             'booking_date' => now(),
             'status' => 'hold',
             'total' => $request->total ?? null,
+            'code' => $code, // Unique code
+            'customer_email' => $request->customer_email ?? null,
+            'customer_name' => $request->customer_name ?? null,
+            'customer_id' => $request->customer_id ?? null,
+            'phone_number' => $request->phone_number ?? null,
+            'expired_at' => now()->addDays(3), // Set expiration date
+            'sub_total' => $request->sub_total ?? null,
+            'admin_fee' => $request->admin_fee ?? null,
+            'payment_fee' => $request->payment_fee ?? null,
+            'tax' => $request->tax ?? null,
+            'grand_total' => $request->grand_total ?? null,
+            'voucher' => $request->voucher ?? null,
+            'snap_token' => $request->snap_token ?? null,
         ]);
 
-        return redirect()->route('checkout.payment');
+        return redirect()->route('checkout.payment', ['id' => $request->tour_package_id]);
     }
 
     /**

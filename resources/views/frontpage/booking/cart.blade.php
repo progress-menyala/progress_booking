@@ -2,10 +2,11 @@
     @include('components.banner', ['title' => 'Cart', 'subtitle' => 'Form'])    
 
     <!--Cart Section-->
-    {{-- @dd(auth()->us er()) --}}
+    {{-- @dd(auth()->user()) --}}
     <section class="cart-section">
         <div class="auto-container">
             <!--Cart Outer-->
+            {{-- @dd(auth()->user()) --}}
             <div class="cart-outer">
                 <div class="table-outer">
                     <div class="table-box">
@@ -15,8 +16,6 @@
                                     <th>&nbsp;</th>
                                     <th class="prod-column">Product</th>
                                     <th class="price">Price</th>
-                                    <th>Checkout</th>
-                                  
                                 </tr>
                             </thead>
                             
@@ -31,16 +30,6 @@
                                         </div>
                                     </td>
                                     <td class="price">Rp. {{ $tour->price }}</td>
-                                    <td colspan="2" class="prod-column justify-content-start">
-                                        <form action="{{ route('checkout.store', ['id' => $tour->id]) }}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="tour_package_id" value="{{ $tour->id ?? '' }}">
-                                            <input type="hidden" name="payment_method_id" value="{{ $paymentMethod->id ?? '' }}">
-                                            <input type="hidden" name="booking_date" value="{{ $bookingDate ?? '' }}">
-                                            <input type="hidden" name="total" value="{{ $total ?? '' }}">
-                                            <button type="submit" class="theme-btn btn-style-two"><span>Checkout</span></button>
-                                        </form>    
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -63,18 +52,73 @@
                     </div> --}}
                 </div>
 
-                {{-- <div class="totals-column clearfix">
+                <div class="totals-column clearfix">
                     <div class="inner">
                         <div class="cart-total">
                             <h3 class="title">Cart Totals</h3>
                             <!--Totals Table-->
-                            <ul class="totals-table">
-                                <li class="clearfix"><span class="col col-title">Total</span><span class="col total-price">Rp. {{ $tour->price }}</span></li>
-                                <li class="clearfix"></li>
-                            </ul>
+                            <form action="{{ route('checkout.store', ['id' => $tour->id]) }}" method="post">
+                                @csrf
+                                <ul class="totals-table">
+                                    <div x-data="{
+                                        price: {{ $tour->price }},
+                                        fee: 0.05,
+                                        tax: 0.11,
+                                        adminfee: 0.02,
+                                        get total() {
+                                            return this.price + (this.price * this.fee) + (this.price * this.tax) + (this.price * this.adminfee);
+                                        }
+                                    }">
+                                        <li class="clearfix">
+                                            <span class="col col-title">Price</span>
+                                            <span class="col total-price">Rp. <span x-text="price.toFixed(2)"></span></span>
+                                        </li>
+                                        <li class="clearfix">
+                                            <span class="col col-title">Fee Payment</span>
+                                            <span class="col total-price">5%</span>
+                                            <input type="hidden" value="5" readonly name="payment_fee" >
+                                        </li>
+                                        <li class="clearfix">
+                                            <span class="col col-title">Admin Payment</span>
+                                            <span class="col total-price">2%</span>
+                                            <input type="hidden" value="2" readonly name="admin_fee" >
+                                        </li>
+                                        <li class="clearfix">
+                                            <span class="col col-title">Tax</span>
+                                            <span class="col total-price">11%</span>
+                                            <input type="hidden" value="11" readonly name="tax" >
+                                        </li>
+                                        <li class="clearfix">
+                                            <span class="col col-title">Total</span>
+                                            <span class="col total-price">
+                                                Rp. <span x-text="total.toFixed(2)"></span>
+                                                <input type="hidden" x-model="total" readonly name="total" >
+                                            </span>
+                                        </li>
+                                    </div>
+                                    
+                                    <li class="clearfix"></li>
+                                </ul>
+                                <div x-data="{
+                                    code: '',
+                                    generateRandomCode() {
+                                        let code = '';
+                                        for (let i = 0; i < 5; i++) {
+                                            const randomDigit = Math.floor(Math.random() * 10);
+                                            code += randomDigit;
+                                        }
+                                        this.code = code;
+                                    }
+                                }" x-init="generateRandomCode()">
+                                <input type="hidden" name="code" x-bind:value="code">
+                                <input type="hidden" name="tour_package_id" value="{{ $tour->id ?? '' }}">
+                                <input type="hidden" name="payment_method_id" value="{{ $paymentMethod->id ?? '' }}">
+                                <input type="hidden" name="booking_date" value="{{ $bookingDate ?? now() }}">
+                                <button type="submit" class="theme-btn btn-style-two"><span>Checkout</span></button>
+                            </form> 
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </section>

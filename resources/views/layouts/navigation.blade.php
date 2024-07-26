@@ -1,6 +1,8 @@
     <div class="preloader"></div> 
 	
     <div class="search-backdrop"></div>
+
+    {{-- @dd(auth()->user()) --}}
 	
     <!-- Main Header-->
     <header class="main-header">
@@ -22,7 +24,15 @@
                                 <li><a href="#">Rus</a></li>
                             </ul>
                         </div>
-                        <div class="login"><i class="icon fa fa-user"></i> <a href="/login">SIGN IN</a></div>
+                        @if (auth()->user())
+                            <div class="login"><i class="icon fa fa-user"></i>Selamat datang, {{ auth()->user()->name }}</div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-logout">Logout</button>
+                            </form>
+                        @else
+                            <div class="login"><i class="icon fa fa-user"></i> <a href="/login">SIGN IN</a></div>
+                        @endif
                     </div>
                 </div>
             </div>

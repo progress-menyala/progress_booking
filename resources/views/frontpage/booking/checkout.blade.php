@@ -133,10 +133,10 @@
                                 <div class="order-summary">
                                     <ul>
                                         <li class="sum-head clearfix"><span class="ttl">Tour Packages</span> <span class="dtl">Subtotal</span></li>
-                                        <li class="prod clearfix"><span class="ttl">{{ $booking->name }}</span> <span class="dtl" id="price">Rp. {{ $booking->price }}</span></li>
+                                        <li class="prod clearfix"><span class="ttl">{{ $booking->name }}</span> <span class="dtl" id="price" value="{{ $booking->price }}">Rp. {{ $booking->price }}</span></li>
                                         <li class="prod clearfix"><span class="ttl">Pajak</span> <span class="dtl" id="tax">11%</span></li>
                                         <li class="prod clearfix"><span class="ttl">Fee Payment</span> <span class="dtl" id="fee">5%</span></li>
-                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">$225.00</span></li>                                        
+                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">Rp. </span></li>                                        
                                     </ul>
                                 </div>
                                 <!--Payment Options-->
@@ -178,6 +178,12 @@
             </div>
         </div>
     </section>
+
+    {{-- <div class="checkout-page px-5 {{ auth()->user() === null ? ' ' : 'd-none ' }}">
+        <div class="alert alert-danger" role="alert">
+            Mohon untuk login terlebih dahulu
+          </div>
+    </div> --}}
     <!-- End Checkout Page -->
 
     <script>
@@ -186,6 +192,8 @@
             const taxElement = document.getElementById('tax');
             const feeElement = document.getElementById('fee');
             const totalElement = document.getElementById('total');
+
+            console.log(priceElement.value, taxElement, feeElement,totalElement);
     
             // // // Function to extract numeric value from string (e.g., "Rp. 1000" -> 1000)
             // // function extractNumericValue(value) {

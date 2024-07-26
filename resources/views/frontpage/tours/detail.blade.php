@@ -68,7 +68,7 @@
                             <div class="text">{!! $tour->description  !!}</div>
                             <div class="other-options clearfix">
                                 <div class="link-box">
-                                    <button type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i>Booking Tour</span></button>
+                                    <a href="/checkout/{{ $tour->id }}" type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i>Booking Tour</span></a>
                                     {{-- <button type="button" class="theme-btn add-wishlist"><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button> --}}
                                 </div>
                             </div>
