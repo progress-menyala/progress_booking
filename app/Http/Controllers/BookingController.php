@@ -40,7 +40,7 @@ class BookingController extends Controller
             'tour_package_id' => 'required',
         ]);
 
-        Booking::create([
+        $booking = Booking::create([
             'user_id' => $request->user_id ?? null,
             'tour_package_id' => $request->tour_package_id,
             'payment_method_id' => $request->payment_method_id ?? null,
@@ -62,7 +62,7 @@ class BookingController extends Controller
             'snap_token' => $request->snap_token ?? null,
         ]);
 
-        return redirect()->route('checkout.payment', ['id' => $request->tour_package_id]);
+        return redirect()->route('checkout.payment', ['id' => $booking->id]);
     }
 
     /**
@@ -99,8 +99,11 @@ class BookingController extends Controller
 
     public function payment($id)
     {
+        $booking = Booking::find($id);
+        $tour_package = TourPackage::find($booking->tour_package_id);
         return view('frontpage.booking.checkout', [
-            'booking' => TourPackage::find($id)
+            'booking' => $booking,
+            'tour' => $tour_package
         ]);
     }
 }

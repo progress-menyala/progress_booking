@@ -92,7 +92,7 @@
                                             <span class="col col-title">Total</span>
                                             <span class="col total-price">
                                                 Rp. <span x-text="total.toFixed(2)"></span>
-                                                <input type="hidden" x-model="total" readonly name="total" >
+                                                <input type="hidden" x-model="total" readonly name="grand_total" >
                                             </span>
                                         </li>
                                     </div>
@@ -111,6 +111,7 @@
                                     }
                                 }" x-init="generateRandomCode()">
                                 <input type="hidden" name="code" x-bind:value="code">
+                                <input type="hidden" name="sub_total" value="{{ $tour->price }}">
                                 <input type="hidden" name="tour_package_id" value="{{ $tour->id ?? '' }}">
                                 <input type="hidden" name="payment_method_id" value="{{ $paymentMethod->id ?? '' }}">
                                 <input type="hidden" name="booking_date" value="{{ $bookingDate ?? now() }}">

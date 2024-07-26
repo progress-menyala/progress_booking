@@ -5,7 +5,7 @@
     <!--CheckOut Page-->
     <section class="checkout-page">
         <div class="auto-container">
-            <ul class="default-links"> 
+            {{-- <ul class="default-links"> 
                 <li class="have-coupon with-border"><i class="icon"><img src="{{ asset('storage/images/icons/coupon-icon.svg') }}" alt=""></i> Have a coupon? <a href="#">Click here</a> to enter your code</li>
                 <li>
                     <div class="coupon-form site-form">
@@ -18,7 +18,7 @@
                         </form>
                     </div>
                 </li>
-            </ul> 
+            </ul>  --}}
             <!--Checkout Details-->
             <div class="site-form">
                 
@@ -32,87 +32,37 @@
                                     <div class="row clearfix">
                                         <!--Form Group-->
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">First Name <i>*</i></div>
+                                            <div class="f-label">Name<i>*</i></div>
                                             <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
+                                                <input type="text" name="customer_name" value="" placeholder="">
                                             </div>
                                         </div>
 
                                         <!--Form Group-->
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Last Name <i>*</i></div>
+                                            <div class="f-label">Email</div>
                                             <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
+                                                <input type="email" name="customer_email" value="" placeholder="">
                                             </div>
                                         </div>
 
                                         <!--Form Group-->
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Company name (optional)</div>
-                                            <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
-                                            </div>
-                                        </div>
+                                            <div class="f-label">Phone Number<i>*</i></div>
+                                            {{-- <div class="field-inner input-group">
+                                                <span class="input-group-text" id="basic-addon1">+62 </span>
+                                                <input class="form-controll" type="text" name="phone_number" value="" placeholder="" style="width:auto">
+                                            </div> --}}
 
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Country / Region <i>*</i></div>
-                                            <div class="field-inner">
-                                                 <select>
-                                                    <option>USA</option>
-                                                    <option>China</option>
-                                                    <option>Russia</option>
-                                                    <option>UK</option>
-                                                    <option>France</option>
-                                                    <option>Germany</option>
-                                                </select>
-                                                <span class="alt-icon far fa-angle-down"></span>
-                                            </div>
-                                        </div>
-
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Street address <i>*</i></div>
-                                            <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Town / City <i>*</i></div>
-                                            <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Postcode / ZIP (optional)</div>
-                                            <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Phone <i>*</i></div>
-                                            <div class="field-inner">
-                                                <input type="text" name="field-name" value="" placeholder="">
-                                            </div>
-                                        </div>
-
-                                        <!--Form Group-->
-                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                            <div class="f-label">Email <i>*</i></div>
-                                            <div class="field-inner">
-                                                <input type="email" name="field-name" value="" placeholder="">
-                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">+62</span>
+                                                <input type="text" class="form-control" placeholder="85829161701" aria-label="Username" aria-describedby="basic-addon1" style="width:auto">
+                                              </div>
                                         </div>
                                         
                                     </div>
                                 </div>
-                                <div class="billing-form">
+                                {{-- <div class="billing-form">
                                     <h4 class="checkout-title">Billing details</h4>
                                     <div class="row clearfix">
                                         <!--Form Group-->
@@ -124,24 +74,26 @@
                                         </div>
                                         
                                     </div>
-                                </div>
+                                </div> --}}
                             </form>
                         </div>
+                        {{-- @dd($booking, $tour) --}}
                         <div class="order-column col-lg-6 col-md-12 col-sm-12">
                             <div class="order-box">
                                 <h4 class="checkout-title">Your Order</h4>
                                 <div class="order-summary">
                                     <ul>
                                         <li class="sum-head clearfix"><span class="ttl">Tour Packages</span> <span class="dtl">Subtotal</span></li>
-                                        <li class="prod clearfix"><span class="ttl">{{ $booking->name }}</span> <span class="dtl" id="price" value="{{ $booking->price }}">Rp. {{ $booking->price }}</span></li>
-                                        <li class="prod clearfix"><span class="ttl">Pajak</span> <span class="dtl" id="tax">11%</span></li>
-                                        <li class="prod clearfix"><span class="ttl">Fee Payment</span> <span class="dtl" id="fee">5%</span></li>
-                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">Rp. </span></li>                                        
+                                        <li class="prod clearfix"><span class="ttl">{{ $tour->name }}</span> <span class="dtl" id="price" value="{{ $booking->price }}">Rp. {{ $booking->sub_total }}</span></li>
+                                        <li class="prod clearfix"><span class="ttl">Pajak</span> <span class="dtl" id="tax">{{ $booking->tax }} %</span></li>
+                                        <li class="prod clearfix"><span class="ttl">Fee Payment</span> <span class="dtl" id="fee">{{ $booking->payment_fee }} %</span></li>
+                                        <li class="prod clearfix"><span class="ttl">Admin Payment</span> <span class="dtl" id="fee">{{ $booking->admin_fee }} %</span></li>
+                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">Rp. {{ $booking->grand_total }} </span></li>                                        
                                     </ul>
                                 </div>
                                 <!--Payment Options-->
-                                <div class="payment-options">
-                                    <ul>
+                                <div class="payment-options mt-0 pt-0">
+                                    {{-- <ul>
                                         <li>
                                             <div class="radio-option">
                                                 <input type="radio" name="payment-group" id="payment-1" checked>
@@ -160,7 +112,7 @@
                                                 <label for="payment-3"><strong>Paypal</strong></label>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                     <div class="agreement">
                                         <input type="checkbox" name="agree" id="agree">
                                         <label for="agree">I agree with this <a href="terms-conditions.html">teams and condition</a> *</label>
@@ -186,41 +138,4 @@
     </div> --}}
     <!-- End Checkout Page -->
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const priceElement = document.getElementById('price');
-            const taxElement = document.getElementById('tax');
-            const feeElement = document.getElementById('fee');
-            const totalElement = document.getElementById('total');
-
-            console.log(priceElement.value, taxElement, feeElement,totalElement);
-    
-            // // // Function to extract numeric value from string (e.g., "Rp. 1000" -> 1000)
-            // // function extractNumericValue(value) {
-            // //     return parseFloat(value.replace(/[^\d.-]/g, ''));
-            // // }
-    
-            // // Function to format number as currency (e.g., 1000 -> "Rp. 1,000.00")
-            // function formatCurrency(value) {
-            //     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(value);
-            // }
-    
-            // // Extract values
-            // const price = extractNumericValue(priceElement.textContent);
-            // const taxRate = extractNumericValue(taxElement.textContent) / 100;
-            // const feeRate = extractNumericValue(feeElement.textContent) / 100;
-    
-            // Calculate total
-            // const taxAmount = price * taxRate;
-            // const feeAmount = price * feeRate;
-            const total = priceElement + taxElement + feeElement;
-
-            // console.log(price);
-    
-            // Update total in HTML
-            totalElement.textContent = total;
-            console.log(total);
-        });
-    </script>
-    
 </x-app-layout>
