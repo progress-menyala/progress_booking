@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\TourPackage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Services\Midtrans\CreateSnapTokenService;
 
 class BookingController extends Controller
 {
@@ -57,12 +58,12 @@ class BookingController extends Controller
             'admin_fee' => $request->admin_fee ?? null,
             'payment_fee' => $request->payment_fee ?? null,
             'tax' => $request->tax ?? null,
-            'grand_total' => $request->grand_total ?? null,
+            'grand_total' => $request->grand_total ?? 177000,
             'voucher' => $request->voucher ?? null,
             'snap_token' => $request->snap_token ?? null,
         ]);
 
-        return redirect()->route('checkout.payment', ['id' => $booking->id]);
+        return redirect()->route('checkout.payment', ['id' => $booking->id])->with('success', 'Booking detail created successfully');
     }
 
     /**
@@ -99,11 +100,25 @@ class BookingController extends Controller
 
     public function payment($id)
     {
+
         $booking = Booking::find($id);
         $tour_package = TourPackage::find($booking->tour_package_id);
+
+        $snapToken = $booking->snap_token;
+         if (is_null($snapToken)) {
+             // If snap token is still NULL, generate snap token and save it to database
+
+             $midtrans = new CreateSnapTokenService($booking, $tour_package);
+             $snapToken = $midtrans->getSnapToken();
+
+             $booking->snap_token = $snapToken;
+             $booking->save();
+         }
+
         return view('frontpage.booking.checkout', [
             'booking' => $booking,
-            'tour' => $tour_package
+            'tour' => $tour_package,
+            'snapToken' => $snapToken
         ]);
     }
 }

@@ -25,7 +25,7 @@
                 <div class="billing-detail">
                     
                     <div class="row clearfix">
-                        <div class="billing-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="order-column col-lg-6 col-md-12 col-sm-12">
                             <form method="post" action="checkout.html">
                                 <div class="billing-form">
                                     <h4 class="checkout-title">Billing details</h4>
@@ -34,7 +34,7 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="f-label">Name<i>*</i></div>
                                             <div class="field-inner">
-                                                <input type="text" name="customer_name" value="" placeholder="">
+                                                <input type="text" name="customer_name" value="{{ $booking->customer_name }}" placeholder="" disabled>
                                             </div>
                                         </div>
 
@@ -42,7 +42,7 @@
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                             <div class="f-label">Email</div>
                                             <div class="field-inner">
-                                                <input type="email" name="customer_email" value="" placeholder="">
+                                                <input type="email" name="customer_email" value="{{ $booking->customer_email }}" placeholder="" disabled>
                                             </div>
                                         </div>
 
@@ -56,7 +56,7 @@
 
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="basic-addon1">+62</span>
-                                                <input type="text" class="form-control" placeholder="85829161701" aria-label="Username" aria-describedby="basic-addon1" style="width:auto">
+                                                <input type="text" class="form-control" placeholder="85829161701" value="{{ $booking->phone_number }}" disabled aria-label="Username" aria-describedby="basic-addon1" style="width:auto">
                                               </div>
                                         </div>
                                         
@@ -118,7 +118,7 @@
                                         <label for="agree">I agree with this <a href="terms-conditions.html">teams and condition</a> *</label>
                                     </div>
                                     <div class="btn-box">
-                                        <button type="button" class="theme-btn btn-style-two"><span>Place Order</span></button>
+                                        <button type="button" class="theme-btn btn-style-two" id="pay-button"><span>Place Order</span></button>
                                     </div>
                                 </div>
                                 <!--End Place Order-->
@@ -137,5 +137,35 @@
           </div>
     </div> --}}
     <!-- End Checkout Page -->
+
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
+    <script>
+        const payButton = document.querySelector('#pay-button');
+        payButton.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            snap.pay('{{ $snapToken }}', {
+                // Optional
+                onSuccess: function(result) {
+                    /* You may add your own js here, this is just example */
+                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                    console.log(result)
+                },
+                // Optional
+                onPending: function(result) {
+                    /* You may add your own js here, this is just example */
+                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                    console.log(result)
+                },
+                // Optional
+                onError: function(result) {
+                    /* You may add your own js here, this is just example */
+                    // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                    console.log(result)
+                }
+            });
+        });
+    </script>
 
 </x-app-layout>

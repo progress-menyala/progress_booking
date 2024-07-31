@@ -9,6 +9,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrganizersController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\PaymentCallbackController;
+use App\Http\Middleware\VerifyCsrfToken;
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -45,4 +47,6 @@ Route::get('/destination/{destination}', [DestinationController::class, 'show'])
 
 Route::get('/contact', [ContactController::class, 'index']);
 
+Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive'])->middleware('bypass.csrf');
+// Route::middleware('web')->post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
 require __DIR__.'/auth.php';
