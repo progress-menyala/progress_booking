@@ -8,9 +8,10 @@ use Xendit\Configuration;
 use App\Models\TourPackage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Services\Midtrans\CreateSnapTokenService;
-use Xendit\Invoice\CreateInvoiceRequest;
 use Xendit\Invoice\InvoiceApi;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Xendit\Invoice\CreateInvoiceRequest;
+use App\Services\Midtrans\CreateSnapTokenService;
 
 class BookingController extends Controller
 {
@@ -198,4 +199,40 @@ class BookingController extends Controller
 
         return response()->json(['message' => 'success']);
     }
+
+    public function download($id) 
+    {
+        // $id = 44;
+        $booking = Booking::find($id);
+        // dd($booking, $booking->tourPackage->organizer_profiles);
+        // dd($booking->tourPackage->organizer_profiles->name, $booking->tourPackage->organizer_profiles->email, $booking->tourPackage->organizer_profiles->phone);
+        $data = [
+            
+                'quantity' => 1,
+                'tour' => $booking->tourPackage->name,
+                'organizer' => $booking->tourPackage->organizer_profiles->name,
+                'email_org' => $booking->tourPackage->organizer_profiles->email,
+                'phone_org' => $booking->tourPackage->organizer_profiles->phone,
+                'price' => $booking->sub_total,
+                'admin_fee' => $booking->admin_fee,
+                'sub_total' => $booking->sub_total,
+                'payment_fee' => $booking->payment_fee,
+                'tax' => $booking->tax,
+                'grand_total' => $booking->grand_total,
+                'customer_name' => $booking->customer_name,
+                'customer_email' => $booking->customer_email,
+                'phone_number' => $booking->phone_number,
+                'booking_date' => $booking->booking_date,
+                'booking_code' => $booking->code,
+            
+        ];
+     
+        $pdf = Pdf::loadView('invoice', ['data' => $data]);
+
+        return view('invoice', ['data' => $data]);
+        
+        // return $pdf->stream();
+    }
+
+
 }

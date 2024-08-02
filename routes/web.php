@@ -42,7 +42,6 @@ Route::get('/checkout/{id}', [BookingController::class, 'index'])->name('checkou
 Route::post('/checkout', [BookingController::class, 'store'])->name('checkout.store');
 Route::get('/checkout/{id}/payment', [BookingController::class, 'payment'])->name('checkout.payment');
 
-Route::get('/notification/{id}', [BookingController::class, 'xenditNotification'])->name('checkout.xenditNotification');
 
 Route::get('/destination', [DestinationController::class, 'index']);
 Route::get('/destination/{destination}', [DestinationController::class, 'show']);
@@ -50,6 +49,10 @@ Route::get('/destination/{destination}', [DestinationController::class, 'show'])
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive'])->middleware('bypass.csrf');
+
 Route::post('payments/xendit', [BookingController::class, 'paymentXendit'])->name('paymentXendit');
+Route::get('/notification/{id}', [BookingController::class, 'xenditNotification'])->name('checkout.xenditNotification');
+
+Route::get('/download/{id}', [BookingController::class, 'download']);
 // Route::middleware('web')->post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
 require __DIR__.'/auth.php';
