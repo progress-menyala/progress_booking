@@ -93,33 +93,23 @@
                                 </div>
                                 <!--Payment Options-->
                                 <div class="payment-options mt-0 pt-0">
-                                    {{-- <ul>
-                                        <li>
-                                            <div class="radio-option">
-                                                <input type="radio" name="payment-group" id="payment-1" checked>
-                                                <label for="payment-1"><strong>Check payment</strong></label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="radio-option">
-                                                <input type="radio" name="payment-group" id="payment-2" checked>
-                                                <label for="payment-2"><strong>Cash on delivery</strong></label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="radio-option">
-                                                <input type="radio" name="payment-group" id="payment-3">
-                                                <label for="payment-3"><strong>Paypal</strong></label>
-                                            </div>
-                                        </li>
-                                    </ul> --}}
-                                    <div class="agreement">
-                                        <input type="checkbox" name="agree" id="agree">
-                                        <label for="agree">I agree with this <a href="terms-conditions.html">teams and condition</a> *</label>
-                                    </div>
-                                    <div class="btn-box">
-                                        <button type="button" class="theme-btn btn-style-two" id="pay-button"><span>Place Order</span></button>
-                                    </div>
+                                    <form action="{{ route('paymentXendit') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                                        {{-- <input type="hidden" name="snap_token" value="{{ $snapToken }}"> --}}
+                                        <input type="hidden" name="total" value="{{ $booking->grand_total }}">
+                                        <input type="hidden" name="customer_email" value="{{ $booking->customer_email }}">
+                                        <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
+                                        <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
+                                        <input type="hidden" name="payment_method" value="xendit">
+                                        <div class="agreement">
+                                            <input type="checkbox" name="agree" id="agree">
+                                            <label for="agree">I agree with this <a href="terms-conditions.html">terms and condition</a> *</label>
+                                        </div>
+                                        <div class="btn-box">
+                                            <button type="submit" class="theme-btn btn-style-two"><span>Pay with Xendit</span></button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <!--End Place Order-->
                             </div>
@@ -138,7 +128,7 @@
     </div> --}}
     <!-- End Checkout Page -->
 
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    {{-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
     </script>
     <script>
         const payButton = document.querySelector('#pay-button');
@@ -166,6 +156,6 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
 </x-app-layout>

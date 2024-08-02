@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Xendit\Invoice;
 use App\Models\Booking;
+use Xendit\Configuration;
 use App\Models\TourPackage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Services\Midtrans\CreateSnapTokenService;
+use Xendit\Invoice\CreateInvoiceRequest;
+use Xendit\Invoice\InvoiceApi;
 
 class BookingController extends Controller
 {
+    public function __construct()
+    {
+        Configuration::setXenditKey('xnd_development_AFGSuEywpY3rACCgNTWgJ7n0zhuqaAMoXPuygQz5DmCiMJST8gglfONArVH1');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -104,21 +112,90 @@ class BookingController extends Controller
         $booking = Booking::find($id);
         $tour_package = TourPackage::find($booking->tour_package_id);
 
-        $snapToken = $booking->snap_token;
-         if (is_null($snapToken)) {
-             // If snap token is still NULL, generate snap token and save it to database
+        // $snapToken = $booking->snap_token;
+        //  if (is_null($snapToken)) {
+        //      // If snap token is still NULL, generate snap token and save it to database
 
-             $midtrans = new CreateSnapTokenService($booking, $tour_package);
-             $snapToken = $midtrans->getSnapToken();
+        //      $midtrans = new CreateSnapTokenService($booking, $tour_package);
+        //      $snapToken = $midtrans->getSnapToken();
 
-             $booking->snap_token = $snapToken;
-             $booking->save();
-         }
+        //      $booking->snap_token = $snapToken;
+        //      $booking->save();
+        //  }
 
         return view('frontpage.booking.checkout', [
             'booking' => $booking,
             'tour' => $tour_package,
-            'snapToken' => $snapToken
         ]);
+    }
+
+    public function paymentXendit(Request $request)
+    {
+        $booking = Booking::find($request->booking_id);
+        // dd($booking);
+        // $tour_package = TourPackage::find($booking->tour_package_id);
+        $uuid = (string) Str::uuid();
+
+        $external_id = $booking->code;
+        $amount = $booking->grand_total;
+        $description = 'Payment for booking ' . $booking->code;
+
+    //    call Xendit
+        $apiInstance = new InvoiceApi();
+        $createInvoiceRequest = new CreateInvoiceRequest([
+            'external_id' => $uuid,
+            'description' => $description,
+            'amount' => $amount,
+            'currency' => 'IDR',
+            'customer' => array(
+                'name' => $booking->customer_name,
+                'email' => $booking->customer_email,
+                'phone' => $booking->phone_number
+            ),
+            'success_redirect_url' => 'http://localhost:8000/',
+            'failure_redirect_url' => 'http://localhost:8000/',
+        ]);
+
+        try {
+            $result = $apiInstance->createInvoice($createInvoiceRequest);
+
+            // $booking = new Booking();
+            // $booking->checkout_link = $result['invoice_url'];
+            // $booking->external_id = $uuid;
+            // $booking->status = 'Hold';   
+            // $booking->save();
+
+            $booking->update([
+                'checkout_link' => $result['invoice_url'],
+                'external_id' => $uuid,
+                'status' => 'hold'
+            ]);
+
+            return redirect($result['invoice_url']);
+                
+        } catch (\Xendit\XenditSdkException $e) {
+            echo 'Exception when calling InvoiceApi->createInvoice: ', $e->getMessage(), PHP_EOL;
+            echo 'Full Error: ', json_encode($e->getFullError()), PHP_EOL;
+        }
+ 
+    }
+
+    public function xenditNotification($id)
+    {
+        $apiInstance = new InvoiceApi();
+
+        $result = $apiInstance->getInvoices(null, $id);
+
+        // get data
+        $booking = Booking::where('external_id', $id)->firstOrFail();
+        if($booking->status == 'settled'){
+            return response()->json('Payment anda telah berhasil diproses');
+        }
+
+        $booking->status =  $result[0]['status'];
+        $booking->save();
+        return response()->json('Success');
+
+        return response()->json(['message' => 'success']);
     }
 }

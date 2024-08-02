@@ -58,6 +58,8 @@
                     <div class="billing-column col-lg-6 col-md-12 col-sm-12">
                         <form action="{{ route('checkout.store', ['id' => $tour->id]) }}" method="post">
                             @csrf
+                            {{-- @dd($tour) --}}
+                            <input type="hidden" name="id" value="{{ $tour->id }}">
                             <div class="billing-form">
                                 <h4 class="checkout-title">Billing details</h4>
                                 <div class="row clearfix">
