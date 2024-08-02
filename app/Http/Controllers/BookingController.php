@@ -155,18 +155,12 @@ class BookingController extends Controller
                 'email' => $booking->customer_email,
                 'phone' => $booking->phone_number
             ),
-            'success_redirect_url' => 'http://localhost:8000/',
+            'success_redirect_url' => @env('APP_URL') . '/notification/' . $uuid,
             'failure_redirect_url' => 'http://localhost:8000/',
         ]);
 
         try {
             $result = $apiInstance->createInvoice($createInvoiceRequest);
-
-            // $booking = new Booking();
-            // $booking->checkout_link = $result['invoice_url'];
-            // $booking->external_id = $uuid;
-            // $booking->status = 'Hold';   
-            // $booking->save();
 
             $booking->update([
                 'checkout_link' => $result['invoice_url'],
@@ -194,12 +188,12 @@ class BookingController extends Controller
         if($booking->status == 'settled'){
             return response()->json('Payment anda telah berhasil diproses');
         }
-
+        
+        $this->sendInvoice($booking->id);
         $booking->status =  $result[0]['status'];
         $booking->save();
-        return response()->json('Success');
+        return redirect()->route('checkout.payment', ['id' => $booking->id])->with('success', 'Payment success');
 
-        return response()->json(['message' => 'success']);
     }
 
     public function sendInvoice($id) 

@@ -21,6 +21,12 @@
             </ul>  --}}
             <!--Checkout Details-->
             <div class="site-form">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 
                 <div class="billing-detail">
                     
@@ -102,12 +108,18 @@
                                         <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
                                         <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
                                         <input type="hidden" name="payment_method" value="xendit">
-                                        <div class="agreement">
+                                        <div class="agreement {{ $booking->status === "PAID" ? 'd-none' : '' }}">
                                             <input type="checkbox" name="agree" id="agree">
                                             <label for="agree">I agree with this <a href="terms-conditions.html">terms and condition</a> *</label>
                                         </div>
                                         <div class="btn-box">
-                                            <button type="submit" class="theme-btn btn-style-two"><span>Pay with Xendit</span></button>
+                                            @if ($booking->status === "PAID")
+                                                {{-- @dd('halo'); --}}
+                                                <button type="submit" class="theme-btn btn-style-two mt-2" disabled>Paid</button>
+                                            @else
+                                                <button type="submit" class="theme-btn btn-style-two"><span>Pay with Xendit</span></button>
+                                                
+                                            @endif
                                         </div>
                                     </form>
                                 </div>
