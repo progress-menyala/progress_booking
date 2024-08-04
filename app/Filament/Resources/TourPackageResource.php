@@ -42,6 +42,10 @@ class TourPackageResource extends Resource
                 Forms\Components\DatePicker::make('date')
                     ->required()
                     ->label('Date'),
+                    
+                Forms\Components\RichEditor::make('facilities')
+                    ->required(),
+
 
                 Forms\Components\RichEditor::make('description')
                     ->label('Description')
@@ -49,7 +53,7 @@ class TourPackageResource extends Resource
 
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('tour_packages')
+                    ->directory('images/tour_packages')
                     ->required(),
 
 
@@ -71,6 +75,8 @@ class TourPackageResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('date')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('date')
                     ->searchable(),
 
