@@ -24,4 +24,9 @@ class Destination extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function photos()
+    {
+        return $this->hasMany(DestinationPhoto::class);
+    }
 }

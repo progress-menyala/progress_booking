@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tour_package_id')->constrained()->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained()->onDelete('cascade');
-            $table->date('booking_date');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('tour_package_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('payment_method_id')->constrained()->onDelete('cascade')->nullable();
+            $table->date('booking_date')->nullable();
             $table->string('status')->default('hold');
-            $table->integer('total');
+            $table->integer('total')->nullable();
             $table->timestamps();
         });
     }
