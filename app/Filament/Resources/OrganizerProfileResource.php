@@ -34,6 +34,13 @@ class OrganizerProfileResource extends Resource
                     ->preload()
                     ->required(),
 
+                Forms\Components\TextInput::make('email')
+                    ->label('Email Address')
+                    ->email()
+                    ->maxlength(255)
+                    ->unique(ignoreRecord: true)
+                    ->required(),
+
                 Forms\Components\TextInput::make('phone')
                     ->label('Phone Number')
                     ->required()
@@ -75,6 +82,13 @@ class OrganizerProfileResource extends Resource
                 Forms\Components\TextInput::make('instagram')
                     ->label('Instagram Url')
                     ->nullable(),
+                Forms\Components\RichEditor::make('about')
+                    ->label('About Organizer')
+                    ->nullable(),
+                Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->directory('images/organizer_profiles')
+                    ->required(),
             ]);
     }
 
@@ -87,6 +101,9 @@ class OrganizerProfileResource extends Resource
                     ->label('Organizer Name'),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Owner Name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone'),
                 Tables\Columns\TextColumn::make('address'),
@@ -104,6 +121,7 @@ class OrganizerProfileResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->label('Created At'),
+                    Tables\Columns\ImageColumn::make('images/organizer_profiles'),
             ])
             ->filters([
                 //

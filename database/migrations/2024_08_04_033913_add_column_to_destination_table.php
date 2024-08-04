@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('destinations~', function (Blueprint $table) {
+        Schema::table('destinations', function (Blueprint $table) {
             $table->string('maps');
             $table->string('slug')->unique();
             $table->string('featured_image');
             $table->string('status');
-            $table->datetimes('opening_hours');
+            $table->datetime('opening_hours');
             $table->string('contact_info');
         });
     }
