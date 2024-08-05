@@ -2,16 +2,20 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use App\Models\Destination;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\DateTimePicker;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
-use App\Models\Destination;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class DestinationResource extends Resource
 {
@@ -26,9 +30,7 @@ class DestinationResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'id')
                     ->relationship('user', 'name')
-                    ->required()
-                    ,
-
+                    ->required(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -41,12 +43,24 @@ class DestinationResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('images')
-                    ->label('Images')
-                    ->multiple()
-                    ->directory('uploads/images')
+                Forms\Components\TextInput::make('maps')
+                    ->required(),
+                Forms\Components\TextInput::make('slug')
+                    ->required(),
+                Forms\Components\FileUpload::make('featured_image')
                     ->image()
-                    ->maxSize(2048),
+                    ->directory('images/destinations')
+                    ->required(),
+
+                Select::make('status')
+                    ->options([
+                        'draft' => 'Draft',
+                        'reviewing' => 'Reviewing',
+                        'published' => 'Published',
+                    ]),
+                DateTimePicker::make('opening_hours'),
+                Forms\Components\TextInput::make('contact_info')
+                    ->required(),
             ]);
     }
 
@@ -61,6 +75,9 @@ class DestinationResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('location')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('capacity')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('capacity')
                     ->numeric()
                     ->sortable(),
@@ -89,6 +106,7 @@ class DestinationResource extends Resource
                 ]),
             ]);
     }
+    
 
     public static function getRelations(): array
     {

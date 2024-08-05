@@ -121,7 +121,7 @@ class OrganizerProfileResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->label('Created At'),
-                    Tables\Columns\ImageColumn::make('images/organizer_profiles'),
+                Tables\Columns\ImageColumn::make('image'),
             ])
             ->filters([
                 //

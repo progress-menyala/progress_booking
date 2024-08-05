@@ -80,7 +80,7 @@ class TourPackageResource extends Resource
                 Tables\Columns\TextColumn::make('date')
                     ->searchable(),
 
-                Tables\Columns\ImageColumn::make('tour_packages'),
+                Tables\Columns\ImageColumn::make('image'),
             ])
             ->filters([
                 //

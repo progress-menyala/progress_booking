@@ -29,4 +29,11 @@ class Destination extends Model
     {
         return $this->hasMany(DestinationPhoto::class);
     }
+    
+    public function rules()
+    {
+        return [
+            'image' => 'required|image',
+        ];
+    }
 }

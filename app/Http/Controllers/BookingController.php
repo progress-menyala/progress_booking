@@ -115,17 +115,6 @@ class BookingController extends Controller
         $booking = Booking::find($id);
         $tour_package = TourPackage::find($booking->tour_package_id);
 
-        // $snapToken = $booking->snap_token;
-        //  if (is_null($snapToken)) {
-        //      // If snap token is still NULL, generate snap token and save it to database
-
-        //      $midtrans = new CreateSnapTokenService($booking, $tour_package);
-        //      $snapToken = $midtrans->getSnapToken();
-
-        //      $booking->snap_token = $snapToken;
-        //      $booking->save();
-        //  }
-
         return view('frontpage.booking.checkout', [
             'booking' => $booking,
             'tour' => $tour_package,
