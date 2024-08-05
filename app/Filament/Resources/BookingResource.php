@@ -23,28 +23,7 @@ class BookingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'id')
-                    ->relationship('user', 'name')
-                    ->required(),
-                Forms\Components\Select::make('tour_package_id')
-                    ->relationship('tourPackage', 'id')
-                    ->relationship('tourPackage', 'name')
-                    ->required()
-                    ,
-                Forms\Components\Select::make('payment_method_id')
-                    ->relationship('paymentMethod', 'id')
-                    ->relationship('paymentMethod', 'name')
-                    ->required()
-                    ,
-                Forms\Components\DatePicker::make('booking_date')
-                    ->required(),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->default('hold'),
-                Forms\Components\TextInput::make('total')
-                    ->required()
-                    ->numeric(),
+                
             ]);
     }
 
@@ -61,8 +40,8 @@ class BookingResource extends Resource
                     ->numeric()
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('payment_method_id')
-                    ->label('Payment Method')
+                Tables\Columns\TextColumn::make('customer_name')
+                    ->label('customer_name')
                     ->numeric()
                     ->searchable()
                     ->sortable(),
@@ -73,7 +52,7 @@ class BookingResource extends Resource
                 Tables\Columns\TextColumn::make('status')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('total')
+                Tables\Columns\TextColumn::make('grand_total')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -89,11 +68,11 @@ class BookingResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ])
+                // Tables\Actions\ActionGroup::make([
+                //     Tables\Actions\EditAction::make(),
+                //     Tables\Actions\ViewAction::make(),
+                //     Tables\Actions\DeleteAction::make(),
+                // ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -114,7 +93,7 @@ class BookingResource extends Resource
         return [
             'index' => Pages\ListBookings::route('/'),
             // 'create' => Pages\CreateBooking::route('/create'),
-            'edit' => Pages\EditBooking::route('/{record}/edit'),
+            // 'edit' => Pages\EditBooking::route('/{record}/edit'),
         ];
     }
 }
