@@ -82,7 +82,7 @@
 
     <!--Popular Section-->
     <section class="popular-section">
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-1.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-1.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Modern & Beautiful</div>
@@ -97,7 +97,7 @@
                         <div class="trek-block-one">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->images[0]) }}" alt="" title=""></a></div>
+                                    <div class="image"><a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->featured_image) }}" alt="" title=""></a></div>
                                     <div class="info">
                                         <span class="i-block">{{ $destination->location }}</span>
                                     </div>
@@ -112,7 +112,6 @@
                                 </div>
                                 <div class="bottom-box clearfix">
                                     <div class="more-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>
-                                    <div class="video-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><i class="icon far fa-video-camera"></i></a></div>
                                 </div>
                             </div>
                         </div>
@@ -198,47 +197,34 @@
 
     <!--Group Travel Section-->
     <section class="group-travel">
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-2.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-2.jpg') }});"></div>
         <div class="auto-container">
             <div class="content-box">
                 <div class="row clearfix">
                     <!--Block-->
-                    
-                    <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-box">
-                            <div class="title"><h4>{{ $featured[0]->tourPackage->name }}</h4></div>
-                            <div class="content">
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> {{ $featured[0]->tourPackage->date   }}</span> &ensp;
+
+                    @foreach ($featured as $feat)
+                        <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner-box">
+                                <div class="title"><h4>{{ $feat->tourPackage->name }}</h4></div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span class="i-block"><i class="icon far fa-clock"></i> {{ $feat->tourPackage->date   }}</span> &ensp;
+                                    </div>
+                                    <div class="price"><span>Rp. {{ $feat->tourPackage->price }}</span></div>
+                                    <div class="text">{!! $feat->tourPackage->description !!}</div>
+                                    <div class="link-box"><a href="/checkout/{{ $feat->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
                                 </div>
-                                <div class="price"><span>Rp. {{ $featured[0]->tourPackage->price }}</span></div>
-                                <div class="text">{{ $featured[0]->tourPackage->description }}</div>
-                                <div class="link-box"><a href="/checkout/{{ $featured[0]->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
                             </div>
                         </div>
-                    </div>
-    
-                    <!--Block-->
-                    <div class="travel-block-one col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-box">
-                            <div class="title"><h4>{{ $featured[1]->tourPackage->name }}</h4></div>
-                            <div class="content">
-                                <div class="info">
-                                    <span class="i-block"><i class="icon far fa-clock"></i> {{ $featured[1]->tourPackage->date   }}</span> &ensp;
-                                </div>
-                                <div class="price"><span>Rp. {{ $featured[1]->tourPackage->price }}</span></div>
-                                <div class="text">{{ $featured[1]->tourPackage->description }}</div>
-                                <div class="link-box"><a href="/checkout/{{ $featured[1]->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
     
                 </div>
             </div>
         </div>
     </section>
 
-    <!--News Section-->
+    {{-- <!--News Section-->
     <section class="news-section">
         <div class="floated-icon left"><img src="{{ asset('storage/images/resource/stones-left.svg') }}" alt="" title=""></div>
         <div class="floated-icon right"><img src="{{ asset('storage/images/resource/stones-right.svg') }}" alt="" title=""></div>
@@ -304,13 +290,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     
     <!--Subscribe Section-->
     <section class="subscribe-section">
         <div class="auto-container">
             <div class="content-box">
-                <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/newsletter-bg.png') }});"></div>
+                <div class="bg-layer" style="background-image: url({{ asset('storage/images/resources/newsletter-bg.png') }});"></div>
                 <div class="row clearfix">
                     <div class="image-col col-xl-5 col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">

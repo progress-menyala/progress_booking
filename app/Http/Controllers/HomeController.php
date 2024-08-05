@@ -14,6 +14,8 @@ class HomeController extends Controller
         $destinations = Destination::all();
         $featured_tours = FeaturedTour::with('tourPackage')->get();
 
+        // dd($destinations, $featured_tours);
+
         return view('dashboard', [
             'destinations' => $destinations,
             'featured' => $featured_tours
