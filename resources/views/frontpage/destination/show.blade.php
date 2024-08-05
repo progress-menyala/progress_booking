@@ -1,16 +1,6 @@
 <x-app-layout>
 	@include('components.banner', ['title' => 'Destination', 'subtitle' => 'detail'])
 
-	<!-- Banner Section -->
-	<section class="inner-banner">
-		<div class="image-layer" style="background-image: url('{{ asset('storage/images/resource/banner-image-1.jpg') }}');"></div>
-		<div class="auto-container">
-			<div class="content-box">
-				<h2>Title</h2>
-			</div>
-		</div>
-	</section>
-	<!--End Banner Section -->
 
 	<!-- Package Detail Section -->
 	<section class="package-detail-section">
@@ -89,7 +79,7 @@
 					
 					<h5>About {{ $destination->name }}</h5>
 					<p>{!! $destination->description !!}</p>
-					<div class="feature-box">
+					{{-- <div class="feature-box">
 						<h5>Features</h5>
 						<ul class="feature-list">
 							<li>Free Download Instagram Logo</li>
@@ -98,7 +88,7 @@
 							<li>Following vectors are from the same pack as this vector also</li>
 							<li>Instagram Logo SVG Vector is a part of Social Websites</li>
 						</ul>
-					</div>
+					</div> --}}
 					<div class="facility-box">
 						<h5>Facilities</h5>
 						<div class="row clearfix">
@@ -182,21 +172,14 @@
 					<div class="gallery-box">
 						<h5>Gallery</h5>
 						<div class="single-item-carousel owl-carousel owl-theme">
-							<div class="slide">
-								<div class="image">
-                                    <img src="{{ asset('storage/images/resource/gallery.jpg') }}" alt="" />
+							@foreach ($photos as $photo)
+							{{-- @dd($photos) --}}
+								<div class="slide">
+									<div class="image">
+										<img src="{{ asset('storage/' . $photo->photo_url) }}" alt="" />
+									</div>
 								</div>
-							</div>
-							<div class="slide">
-								<div class="image">
-									<img src="{{ asset('storage/images/resource/gallery.jpg') }}" alt="" />
-								</div>
-							</div>
-							<div class="slide">
-								<div class="image">
-									<img src="{{ asset('storage/images/resource/gallery.jpg') }}" alt="" />
-								</div>
-							</div>
+							@endforeach	
 						</div>
 					</div>
 					
@@ -205,7 +188,7 @@
 						<h5>Location</h5>
 						<!--Map Outer-->
 						<div class="map-outer">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1574408946759!5m2!1sen!2s" allowfullscreen=""></iframe>
+							{!! $destination->maps !!}
 						</div>
 					</div>
 					
@@ -216,12 +199,12 @@
 						
 						<!-- Buy Treker Widget -->
 						<div class="sidebar-widget buy-treker-widget">
-							<div class="widget-content" style="background-image: url({{ asset('storage/images/resource/buy.jpg') }})">
+							<div class="widget-content" style="background-image: url({{ asset('storage/' . $destination->featured_image) }})">
 								<div class="logo">
 									<a href="index.html"><img src="{{ asset('storage/images/icons/buy-treker.svg') }}" alt="" /></a>
 								</div>
 								<div class="text">Awesome Trekking Travel <br> Theme !</div>
-								<a href="#" class="theme-btn buy-now">Buy Now</a>
+								<a href="/tours" class="theme-btn buy-now">Buy Now</a>
 							</div>
 						</div>
 						

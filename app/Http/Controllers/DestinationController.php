@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use App\Models\DestinationPhoto;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -40,8 +41,11 @@ class DestinationController extends Controller
     public function show(Destination $destination)
     {
         // dd($destination);
+        $destinationPhoto = DestinationPhoto::where('destination_id', $destination->id)->get();
+        // dd($destinationPhoto);
         return view('frontpage.destination.show', [
-            'destination' => $destination
+            'destination' => $destination,
+            'photos' => $destinationPhoto
         ]);
     }
 
