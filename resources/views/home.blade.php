@@ -84,7 +84,7 @@
 
     <!--Popular Section-->
     <section class="popular-section">
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-1.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-1.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Modern & Beautiful</div>
@@ -511,7 +511,7 @@
 
     <!--Group Travel Section-->
     <section class="group-travel">
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-2.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-2.jpg') }});"></div>
         <div class="auto-container">
             <div class="content-box">
                 <div class="row clearfix">
@@ -554,7 +554,7 @@
 
     <!--Testimonials Section-->
     {{-- <section class="testimonials-one">
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-3.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-3.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Review & Testimonial</div>
@@ -597,7 +597,7 @@
                     <!--Testi Block-->
                     <div class="testi-block alternate">
                         <div class="inner-box">
-                            <div class="image-layer" style="background-image: url({{ asset('storage/images/background/testi-image-1.jpg') }});"></div>
+                            <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/testi-image-1.jpg') }});"></div>
                             <div class="over-box">
                                 <div class="over-title"><a href="#">MASTER TREKER TRAVEL</a></div>
                             </div>
@@ -639,7 +639,7 @@
                     <!--Testi Block-->
                     <div class="testi-block alternate">
                         <div class="inner-box">
-                            <div class="image-layer" style="background-image: url({{ asset('storage/images/background/testi-image-1.jpg') }});"></div>
+                            <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/testi-image-1.jpg') }});"></div>
                             <div class="over-box">
                                 <div class="over-title"><a href="#">MASTER TREKER TRAVEL</a></div>
                             </div>
@@ -723,7 +723,7 @@
     <section class="news-section">
         <div class="floated-icon left"><img src="{{ asset('storage/images/resource/stones-left.svg') }}" alt="" title=""></div>
         <div class="floated-icon right"><img src="{{ asset('storage/images/resource/stones-right.svg') }}" alt="" title=""></div>
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-1.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-1.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Treker Top News</div>
@@ -791,7 +791,7 @@
     <section class="subscribe-section">
         <div class="auto-container">
             <div class="content-box">
-                <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/newsletter-bg.png') }});"></div>
+                <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/newsletter-bg.png') }});"></div>
                 <div class="row clearfix">
                     <div class="image-col col-xl-5 col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">

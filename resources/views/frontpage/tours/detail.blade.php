@@ -14,40 +14,20 @@
                                         <!--Slide Block-->
                                         <div class="slide-block">
                                             <div class="inner-box">
-                                                <div class="image"><img src="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" alt=""></div>
-                                                <a href="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" class="zoom-btn lightbox-image"><img src="{{ asset('storage/images/icons/zoom-2.svg') }}" alt=""></a>
+                                                <div class="image"><img src="{{ asset('storage/' . $tour->image) }}" alt=""></div>
+                                                <a href="{{ asset('storage/' . $tour->image) }}" class="zoom-btn lightbox-image"><img src="{{ asset('storage/images/icons/zoom-2.svg') }}" alt=""></a>
                                             </div>
                                         </div>
-                                        <!--Slide Block-->
-                                        
-                                        <!--Slide Block-->
-                                        <div class="slide-block">
-                                            <div class="inner-box">
-                                                <div class="image"><img src="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" alt=""></div>
-                                                <a href="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" class="zoom-btn lightbox-image"><img src="{{ asset('storage/images/icons/zoom-2.svg') }}" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <!--Slide Block-->
-                                        
-                                        <!--Slide Block-->
-                                        <div class="slide-block">
-                                            <div class="inner-box">
-                                                <div class="image"><img src="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" alt=""></div>
-                                                <a href="{{ asset('storage/images/resource/shop/shop-single-1.jpg') }}" class="zoom-btn lightbox-image"><img src="{{ asset('storage/images/icons/zoom-2.svg') }}" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <!--Slide Block-->
-                                        
 
                                     </div>
                                 </div>
-                                <div class="pagers-box">
+                                {{-- <div class="pagers-box">
                                     <div class="pager-two clearfix">
                                         <a href="" class="pager-item active" data-slide-index="0"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-1.jpg') }}" alt=""></div></a>
                                         <a href="" class="pager-item" data-slide-index="1"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-2.jpg') }}" alt=""></div></a>
                                         <a href="" class="pager-item" data-slide-index="2"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-3.jpg') }}" alt=""></div></a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 
                             </div>
                         </div>
@@ -68,7 +48,7 @@
                             <div class="text">{!! $tour->description  !!}</div>
                             <div class="other-options clearfix">
                                 <div class="link-box">
-                                    <a href="/checkout/{{ $tour->id }}" type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart"></i>Booking Tour</span></a>
+                                    <a href="/checkout/{{ $tour->id }}" type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart me-2"></i>Buy Tour</span></a>
                                     {{-- <button type="button" class="theme-btn add-wishlist"><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button> --}}
                                 </div>
                             </div>
@@ -92,13 +72,7 @@
                                 <h5>Product Description</h5>
                                 <p>{!! $tour->description !!}</p>
                                 <h5>Product Features</h5>
-                                <ul>
-                                    <li>Free Download Instagram Logo</li>
-                                    <li>Illustrator from Instagram Logo 9 Vectors svg vector collection</li>
-                                    <li>Vectors SVG vector illustration graphic art design format.</li>
-                                    <li>Following vectors are from the same pack as this vector also</li>
-                                    <li>Instagram Logo SVG Vector is a part of Social Websites</li>
-                                </ul>
+                                {!! $tour->facilities !!}
                             </div>
                         </div>
                         <div class="tab" id="tab-2">
@@ -183,11 +157,11 @@
                             <div class="inner-box">
                                 <div class="why-block">
                                     <div class="image-box">
-                                        <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/images/resource/shop/prod-5.jpg') }}" alt=""></a></div>
+                                        <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt=""></a></div>
                                         <div class="hvr-box">
                                             <div class="hvr-inner">
                                                 <div class="hvr-content">
-                                                    <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div>
+                                                    {{-- <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div> --}}
                                                     <div class="link"><a href="/tours/{{ $tour->id }}" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
                                                 </div>
                                             </div>

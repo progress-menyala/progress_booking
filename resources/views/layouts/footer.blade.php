@@ -1,6 +1,6 @@
 <!--Main Footer-->
 <footer class="main-footer">
-    <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/f-bottom-bg.svg') }});"></div>
+    <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/f-bottom-bg.svg') }});"></div>
     <div class="floated-icon"><img src="{{ asset('storage/images/resource/footer-stones.svg') }}" alt="" title=""></div>
     <div class="info-section">
         <div class="auto-container">

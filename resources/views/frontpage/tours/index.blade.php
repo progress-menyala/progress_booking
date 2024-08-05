@@ -21,7 +21,7 @@
                         <div class="inner-box">
                             <div class="why-block">
                                 <div class="image-box">
-                                    <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/images/resource/shop/prod-1.jpg') }}" alt=""></a></div>
+                                    <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt=""></a></div>
                                     <div class="hvr-box">
                                         <div class="hvr-inner">
                                             <div class="hvr-content">

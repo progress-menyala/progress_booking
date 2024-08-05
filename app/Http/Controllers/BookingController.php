@@ -55,7 +55,6 @@ class BookingController extends Controller
         $booking = Booking::create([
             'user_id' => $request->user_id ?? null,
             'tour_package_id' => $request->tour_package_id,
-            'payment_method_id' => $request->payment_method_id ?? null,
             'booking_date' => now(),
             'status' => 'hold',
             'total' => $request->total ?? null,
@@ -213,8 +212,8 @@ class BookingController extends Controller
         $pdf = Pdf::loadView('invoice', ['data' => $data]);
         $invoicePdf = $pdf->output();
 
-        Mail::to($booking->customer_email)
-        ->send(new InvoiceMail($data, $invoicePdf));
+        Mail::to($booking->customer_email)->send(new InvoiceMail($data, $invoicePdf));
+        Mail::to($booking->tourPackage->organizer_profiles->email)->send(new InvoiceMail($data, $invoicePdf));
      
         // $pdf = Pdf::loadView('invoice', ['data' => $data]);
 

@@ -228,7 +228,7 @@
     <section class="news-section">
         <div class="floated-icon left"><img src="{{ asset('storage/images/resource/stones-left.svg') }}" alt="" title=""></div>
         <div class="floated-icon right"><img src="{{ asset('storage/images/resource/stones-right.svg') }}" alt="" title=""></div>
-        <div class="bg-layer" style="background-image: url({{ asset('storage/images/background/image-1.jpg') }});"></div>
+        <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/image-1.jpg') }});"></div>
         <div class="auto-container">
             <div class="title-box centered">
                 <div class="subtitle">Treker Top News</div>
@@ -296,7 +296,7 @@
     <section class="subscribe-section">
         <div class="auto-container">
             <div class="content-box">
-                <div class="bg-layer" style="background-image: url({{ asset('storage/images/resources/newsletter-bg.png') }});"></div>
+                <div class="bg-layer" style="background-image: url({{ asset('storage/images/resource/newsletter-bg.png') }});"></div>
                 <div class="row clearfix">
                     <div class="image-col col-xl-5 col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">

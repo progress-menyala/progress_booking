@@ -52,7 +52,7 @@
 
     <!-- Facts Section -->
     <section class="facts-section">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/image-6.jpg') }});"></div>
+        <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/image-6.jpg') }});"></div>
         <div class="auto-container">
             <div class="content-box">
                 <div class="video-btn"><a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image"><span class="icon"><img src="images/icons/video-icon-2.svg" alt="" title=""></span></a></div>
@@ -173,8 +173,8 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features-section">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/image-7.jpg') }});"></div>
+    <section class="features-section mb-0">
+        <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/image-7.jpg') }});"></div>
         <div class="auto-container">
             <div class="upper-box">
                 <div class="row clearfix">
@@ -213,7 +213,7 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-box">
+        {{-- <div class="carousel-box">
             <div class="auto-container">
                 <div class="inner-box">
                     <div class="reviews-carousel owl-theme owl-carousel">
@@ -250,7 +250,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>
     
 
@@ -270,7 +270,7 @@
                         <div class="team-block-one">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/images/resource/team-1.jpg') }}" alt="" title=""></a></div>
+                                    <div class="image"><a href="/organizers/{{ $org->id }}"><img src="{{ asset('storage/'. $org->image) }}" alt="" title=""></a></div>
                                 </div>
                                 <div class="lower-box">
                                     <h4><a href="#">{{ $org->name }}</a></h4>

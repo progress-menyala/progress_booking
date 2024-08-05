@@ -39,7 +39,7 @@
 
     <!-- Facts Section -->
     {{-- <section class="facts-section">
-        <div class="image-layer" style="background-image: url({{ asset('storage/images/background/image-6.jpg') }});"></div>
+        <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/image-6.jpg') }});"></div>
         <div class="auto-container">
             <div class="content-box">
                 <div class="video-btn"><a href="https://www.youtube.com/watch?v=0xhr0j877bI" class="theme-btn lightbox-image"><span class="icon"><img src="images/icons/video-icon-2.svg" alt="" title=""></span></a></div>
@@ -115,7 +115,7 @@
                     <!--Testi Block-->
                     <div class="testi-block alternate">
                         <div class="inner-box">
-                            <div class="image-layer" style="background-image: url({{ asset('storage/images/background/testi-image-1.jpg') }});"></div>
+                            <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/testi-image-1.jpg') }});"></div>
                             <div class="over-box">
                                 <div class="over-title"><a href="#">MASTER TREKER TRAVEL</a></div>
                             </div>
@@ -139,7 +139,7 @@
                     <!--Testi Block-->
                     <div class="testi-block alternate">
                         <div class="inner-box">
-                            <div class="image-layer" style="background-image: url({{ asset('storage/images/background/testi-image-1.jpg') }});"></div>
+                            <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/testi-image-1.jpg') }});"></div>
                             <div class="over-box">
                                 <div class="over-title"><a href="#">MASTER TREKER TRAVEL</a></div>
                             </div>
@@ -163,7 +163,7 @@
                     <!--Testi Block-->
                     <div class="testi-block alternate">
                         <div class="inner-box">
-                            <div class="image-layer" style="background-image: url({{ asset('storage/images/background/testi-image-1.jpg') }});"></div>
+                            <div class="image-layer" style="background-image: url({{ asset('storage/images/resource/testi-image-1.jpg') }});"></div>
                             <div class="over-box">
                                 <div class="over-title"><a href="#">MASTER TREKER TRAVEL</a></div>
                             </div>

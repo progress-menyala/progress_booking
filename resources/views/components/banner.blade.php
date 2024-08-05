@@ -1,6 +1,6 @@
 <!-- Banner Section -->
 <section class="inner-banner">
-    <div class="image-layer" style="background-image: url('{{ asset('storage/images/background/banner-image-1.jpg') }}');"></div>
+    <div class="image-layer" style="background-image: url('{{ asset('storage/images/resource/banner-image-1.jpg') }}');"></div>
     <div class="auto-container">
         <div class="content-box">
             <h2>{{ $title }}</h2>

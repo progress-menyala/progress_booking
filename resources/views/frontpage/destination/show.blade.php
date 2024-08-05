@@ -3,7 +3,7 @@
 
 	<!-- Banner Section -->
 	<section class="inner-banner">
-		<div class="image-layer" style="background-image: url('{{ asset('storage/images/background/banner-image-1.jpg') }}');"></div>
+		<div class="image-layer" style="background-image: url('{{ asset('storage/images/resource/banner-image-1.jpg') }}');"></div>
 		<div class="auto-container">
 			<div class="content-box">
 				<h2>Title</h2>
@@ -216,7 +216,7 @@
 						
 						<!-- Buy Treker Widget -->
 						<div class="sidebar-widget buy-treker-widget">
-							<div class="widget-content" style="background-image: url({{ asset('storage/images/background/buy.jpg') }})">
+							<div class="widget-content" style="background-image: url({{ asset('storage/images/resource/buy.jpg') }})">
 								<div class="logo">
 									<a href="index.html"><img src="{{ asset('storage/images/icons/buy-treker.svg') }}" alt="" /></a>
 								</div>
