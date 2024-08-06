@@ -28,10 +28,10 @@ use App\Http\Middleware\VerifyCsrfToken;
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/about/faq', [AboutController::class, 'faq']);
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/about/faq', [AboutController::class, 'faq'])->name('faq');
 
-Route::get('/tours', [TourController::class, 'index']);
+Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/tours/{tour}', [TourController::class, 'show']);
 
 Route::get('/organizers', [OrganizersController::class, 'index']);
@@ -43,10 +43,10 @@ Route::post('/checkout', [BookingController::class, 'store'])->name('checkout.st
 Route::get('/checkout/{id}/payment', [BookingController::class, 'payment'])->name('checkout.payment');
 
 
-Route::get('/destination', [DestinationController::class, 'index']);
+Route::get('/destination', [DestinationController::class, 'index'])->name('destination');
 Route::get('/destination/{destination}', [DestinationController::class, 'show']);
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive'])->middleware('bypass.csrf');
 
