@@ -5,8 +5,11 @@
     {{-- @dd(auth()->user()) --}}
     <section class="cart-section">
         <div class="auto-container">
-            <!--Cart Outer-->
-            {{-- @dd(auth()->user()) --}}
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="cart-outer">
                 <div class="table-outer">
                     <div class="table-box">
@@ -150,7 +153,11 @@
                                     <input type="hidden" name="tour_package_id" value="{{ $tour->id ?? '' }}">
                                     <input type="hidden" name="payment_method_id" value="{{ $paymentMethod->id ?? '' }}">
                                     <input type="hidden" name="booking_date" value="{{ $bookingDate ?? now() }}">
-                                    <button type="submit" class="theme-btn btn-style-two"><span>Checkout</span></button>
+                                    @if ($btnDisable == true)
+                                        <button type="submit" class="theme-btn btn-style-two" disabled><span>Tidak Tersedia</span></button>
+                                    @else   
+                                        <button type="submit" class="theme-btn btn-style-two"><span>Checkout</span></button>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -29,8 +29,22 @@ class BookingController extends Controller
     {
         // dd($checkout);
         $tour = TourPackage::find($id);
+
+        if (!$tour) {
+            return redirect()->back()->with('error', 'Tour not found.');
+        }    
+
+        $booking = Booking::where('tour_package_id', $tour->id)->first();
+
+        if ($booking && $booking->isValid()) {
+            $btnDisable = 'true';
+        }
+
+        // dd($btnDisable);
+
         return view('frontpage.booking.cart', [
-            'tour' => $tour
+            'tour' => $tour,
+            'btnDisable' => $btnDisable
         ]);
     }
 

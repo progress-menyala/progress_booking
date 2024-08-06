@@ -1,6 +1,11 @@
 <x-app-layout>
      <!-- Banner Section -->
      <section class="banner-section">
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         
         <div class="banner-container">
             <div class="banner-slider-box">

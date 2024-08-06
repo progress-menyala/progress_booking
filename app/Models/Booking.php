@@ -28,4 +28,19 @@ class Booking extends Model
     {
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    public function isExpired()
+    {
+        return $this->expired_at < now();
+    }
+
+    public function isFailed()
+    {
+        return $this->status === 'failed';
+    }
+
+    public function isValid()
+    {
+        return !$this->isExpired() && !$this->isFailed();
+    }
 }
