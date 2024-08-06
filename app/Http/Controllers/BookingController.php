@@ -14,12 +14,13 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use Xendit\Invoice\CreateInvoiceRequest;
 use App\Services\Midtrans\CreateSnapTokenService;
+use Illuminate\Http\Response;
 
 class BookingController extends Controller
 {
     public function __construct()
     {
-        Configuration::setXenditKey('xnd_development_AFGSuEywpY3rACCgNTWgJ7n0zhuqaAMoXPuygQz5DmCiMJST8gglfONArVH1');
+        Configuration::setXenditKey(env('XENDIT_KEY'));
     }
     /**
      * Display a listing of the resource.
@@ -122,9 +123,8 @@ class BookingController extends Controller
 
     public function paymentXendit(Request $request)
     {
+        
         $booking = Booking::find($request->booking_id);
-        // dd($booking);
-        // $tour_package = TourPackage::find($booking->tour_package_id);
         $uuid = (string) Str::uuid();
 
         $external_id = $booking->code;
@@ -143,8 +143,8 @@ class BookingController extends Controller
                 'email' => $booking->customer_email,
                 'phone' => $booking->phone_number
             ),
-            'success_redirect_url' => @env('APP_URL') . '/notification/' . $uuid,
-            'failure_redirect_url' => 'http://localhost:8000/',
+            'success_redirect_url' => route('checkout.payment', ['id' => $booking->id]),
+            'failure_redirect_url' => route('checkout.payment', ['id' => $booking->id]),
         ]);
 
         try {
@@ -165,22 +165,55 @@ class BookingController extends Controller
  
     }
 
-    public function xenditNotification($id)
+    public function xenditNotification(Request $request)
     {
-        $apiInstance = new InvoiceApi();
+        $getToken = $request->headers->get('x-callback-token');
+        $callbackToken = env('XENDIT_CALLBACK_KEY');
 
-        $result = $apiInstance->getInvoices(null, $id);
+        try {
+            
+            $booking = Booking::where('external_id', $request->external_id)->first();
 
-        // get data
-        $booking = Booking::where('external_id', $id)->firstOrFail();
-        if($booking->status == 'settled'){
-            return response()->json('Payment anda telah berhasil diproses');
+            
+
+            if (!$callbackToken) {
+                return response()->json([
+                    'status' => 'Error',
+                    'Message' => 'Callback token Not Exist '
+                ], Response::HTTP_NOT_FOUND);
+            }
+
+            if ($getToken !== $callbackToken) {
+                return response()->json([
+                    'status' => 'Error',
+                    'Message' => 'Token Callback tidak Valid'
+                ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+
+            if ($booking) {
+                if ($request->status == "PAID") {
+                    $this->sendInvoice($booking->id);
+                    $booking->update([
+                        'status' => 'paid'
+                    ]);
+                }else{
+                    $booking->update([
+                        'status' => 'failed'
+                    ]);
+                }
+            }
+
+            return response()->json([
+                'status' => Response::HTTP_OK,
+                'message' => 'Callback Send'
+            ]);
+
+            return route('checkout.payment', $booking->id );
+
+        } catch (\Throwable $th) {
+            throw $th;  
         }
-        
-        $this->sendInvoice($booking->id);
-        $booking->status =  $result[0]['status'];
-        $booking->save();
-        return redirect()->route('checkout.payment', ['id' => $booking->id])->with('success', 'Payment success');
+
 
     }
 

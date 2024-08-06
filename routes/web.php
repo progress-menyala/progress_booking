@@ -51,7 +51,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive'])->middleware('bypass.csrf');
 
 Route::post('payments/xendit', [BookingController::class, 'paymentXendit'])->name('paymentXendit');
-Route::get('/notification/{id}', [BookingController::class, 'xenditNotification'])->name('checkout.xenditNotification');
+Route::post('/notification', [BookingController::class, 'xenditNotification'])->name('xenditNotification');
 
 // Route::get('/download/{id}', [BookingController::class, 'sendInvoice']);
 // Route::middleware('web')->post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);

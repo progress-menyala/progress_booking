@@ -108,12 +108,9 @@
                                         <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
                                         <input type="hidden" name="customer_name" value="{{ $booking->customer_name }}">
                                         <input type="hidden" name="payment_method" value="xendit">
-                                        <div class="agreement {{ $booking->status === "PAID" ? 'd-none' : '' }}">
-                                            <input type="checkbox" name="agree" id="agree">
-                                            <label for="agree">I agree with this <a href="terms-conditions.html">terms and condition</a> *</label>
-                                        </div>
-                                        <div class="btn-box">
-                                            @if ($booking->status === "PAID")
+                                        
+                                        <div class="btn-box mt-4">
+                                            @if ($booking->status === "paid")
                                                 {{-- @dd('halo'); --}}
                                                 <button type="submit" class="theme-btn btn-style-two mt-2" disabled>Paid</button>
                                             @else
