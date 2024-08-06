@@ -11,20 +11,13 @@
                 <div class="inner clearfix">
                     <div class="top-left clearfix">
                         <ul class="info clearfix">
-                            <li><i class="icon fa fa-envelope"></i> <a href="mailto:INFO@TREKER.COM">INFO@TREKER.COM</a></li>
-                            <li><i class="icon fa fa-phone-circle"></i> <a href="tel:+11256326501">+11 256 3265 01</a></li>
+                            <li><i class="icon fa fa-envelope"></i> <a href="mailto:tiomahesa0509@gmail.com">INFO@TREKER.COM</a></li>
+                            <li><i class="icon fa fa-phone-circle"></i> <a href="tel:+62851212121212">+62851212121212</a></li>
                         </ul>
                     </div>
                     <div class="top-right clearfix">
-                        <div class="lang-box">
-                            <div class="lang-btn clearfix"><span class="img far fa-globe-americas"></span><span class="txt">Eng</span><span class="icon far fa-angle-down"></span></div>
-                            <ul class="lang-list">
-                                <li><a href="#">Tur</a></li>
-                                <li><a href="#">Esp</a></li>
-                                <li><a href="#">Rus</a></li>
-                            </ul>
-                        </div>
-                        @if (auth()->user())
+                        
+                        {{-- @if (auth()->user())
                             <div class="login"><i class="icon fa fa-user"></i>Selamat datang, {{ auth()->user()->name }}</div>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                                 @csrf
@@ -32,7 +25,7 @@
                             </form>
                         @else
                             <div class="login"><i class="icon fa fa-user"></i> <a href="/login">SIGN IN</a></div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
@@ -52,22 +45,22 @@
                         <div class="nav-outer clearfix">         
                             <nav class="main-menu">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="/">Home</a></li>
-                                    <li class="dropdown"><a href="/about">About Us</a></li>
-                                    <li class="dropdown"><a href="/tours">Packages Tour</a></li>
-                                    <li><a href="/destination">Destinations</a></li>
-                                    <li><a href="/contact">Contact</a></li>
+                                    <li class="{{ request()->is('/') ? 'current' : '' }}"><a href="/">Home</a></li>
+                                    <li class="{{ request()->is('about*') ? 'current' : '' }}"><a href="/about">About Us</a></li>
+                                    <li class="{{ request()->is('tours*') ? 'current' : '' }}"><a href="/tours">Packages Tour</a></li>
+                                    <li class="{{ request()->is('destination*') ? 'current' : '' }}"><a href="/destination">Destinations</a></li>
+                                    <li class="{{ request()->is('contact*') ? 'current' : '' }}"><a href="/contact">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- Main Menu End-->
                         </div>
                         <!--Nav Outer End-->
         
-                        <div class="links-box clearfix">
+                        {{-- <div class="links-box clearfix">
                             <div class="link search-btn search-toggle"><span class="icon far fa-search"></span></div>
                             <div class="link fav-btn"><a href="#"><span class="icon far fa-heart"></span><span class="count">02</span></a></div>
                             <div class="link cart-btn"><a href="#" class="clearfix"><div class="cart-info"><span class="icon far fa-shopping-cart"></span>00 Items</div><div class="amount">$ 00:00</div></a></div>
-                        </div>
+                        </div> --}}
         
                         <!-- Hidden Nav Toggler -->
                         <div class="nav-toggler">
@@ -114,7 +107,7 @@
 	<div class="cart-backdrop"></div>
 	
     <!--Cart Sidebar-->
-    <div class="cart-sidebar">
+    {{-- <div class="cart-sidebar">
         <div class="cart-side-inner">
             <div class="cart-side-header">
                 <div class="closer-btn"><span>Close</span></div>
@@ -147,4 +140,4 @@
                 <div class="right"><a href="#" class="theme-btn btn-style-two"><span>Checkout</span></a></div>
             </div>
         </div>
-    </div>
+    </div> --}}
