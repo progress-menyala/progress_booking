@@ -45,42 +45,49 @@
             </div>
             <div class="form-box site-form">
                 <div class="contact-form">
-                    <form method="post" action="contact.html">
+                    <form method="post" action="{{ route('contact.store') }}">
+                        @csrf
                         <div class="row clearfix">
                             <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                 <div class="f-label">Your Name <i>*</i></div>
                                 <div class="field-inner">
-                                    <input type="text" name="fieldname" value="" placeholder="" required>
+                                    <input type="text" name="name" value="" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                 <div class="f-label">Your Email <i>*</i></div>
                                 <div class="field-inner">
-                                    <input type="email" name="fieldname" value="" placeholder="" required>
+                                    <input type="email" name="email" value="" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                 <div class="f-label">Your Phone <i>*</i></div>
                                 <div class="field-inner">
-                                    <input type="text" name="fieldname" value="" placeholder="" required>
+                                    <input type="text" name="phone" value="" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                 <div class="f-label">Your Subject <i>*</i></div>
                                 <div class="field-inner">
-                                    <input type="text" name="fieldname" value="" placeholder="" required>
+                                    <input type="text" name="subject" value="" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                 <div class="f-label">Write Message</div>
                                 <div class="field-inner">
-                                    <textarea name="fieldname" placeholder=""></textarea>
+                                    <textarea name="message" placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                 <button type="submit" class="theme-btn btn-style-two"><span>Submit Now<i class="icon far fa-angle-right"></i></span></button>
                             </div>
                         </div>
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

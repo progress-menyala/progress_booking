@@ -57,6 +57,9 @@ Route::post('/notification', [BookingController::class, 'xenditNotification'])->
 // newsletter
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
+//contact  
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 // Route::get('/download/{id}', [BookingController::class, 'sendInvoice']);
 // Route::middleware('web')->post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
 require __DIR__.'/auth.php';
