@@ -317,7 +317,8 @@
                                 <div class="text">Fight School has specialized in martial arts since 1986 and has one of the most innovative programs in the nation.</div>
                             </div>
                             <div class="form-box subscribe-form">
-                                <form method="post" action="index.html">
+                                <form method="post" action="{{ route('newsletter.store') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <div class="field-inner">
                                             <span class="icon alt-icon far fa-envelope"></span>
@@ -327,6 +328,12 @@
                                     </div>
                                 </form>
                             </div>
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

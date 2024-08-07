@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TourController;
+use App\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrganizersController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\PaymentCallbackController;
-use App\Http\Middleware\VerifyCsrfToken;
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -52,6 +53,9 @@ Route::post('payments/midtrans-notification', [PaymentCallbackController::class,
 
 Route::post('payments/xendit', [BookingController::class, 'paymentXendit'])->name('paymentXendit');
 Route::post('/notification', [BookingController::class, 'xenditNotification'])->name('xenditNotification');
+
+// newsletter
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 // Route::get('/download/{id}', [BookingController::class, 'sendInvoice']);
 // Route::middleware('web')->post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
