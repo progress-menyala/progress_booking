@@ -21,20 +21,21 @@
                         <div class="inner-box">
                             <div class="why-block">
                                 <div class="image-box">
-                                    <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt=""></a></div>
+                                    <div class="image">
+                                        <a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt="" class="aspect-ratio-16-9">
+                                        </a>
+                                    </div>
                                     <div class="hvr-box">
                                         <div class="hvr-inner">
                                             <div class="hvr-content">
-                                                {{-- <div class="link"><a href="#" class="theme-btn"><i class="far fa-shopping-cart"></i> Add To Cart</a></div> --}}
                                                 <div class="link"><a href="/tours/{{ $tour->id }}" class="theme-btn"><i class="far fa-bars"></i> Details</a></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="add-fav"><a href="#" class="theme-btn"><i class="far fa-heart"></i></a></div>
                                 </div>
                                 <div class="lower-box">
                                     <h5><a href="/tours/{{ $tour->id }}">{{ $tour->name }}</a></h5>
-                                    <div class="price"><span>Rp. {{ $tour->price }}</span></div>
+                                    <div class="price"><span>Rp. {{ number_format($tour->price )}}</span></div>
                                 </div>
                             </div>
 
