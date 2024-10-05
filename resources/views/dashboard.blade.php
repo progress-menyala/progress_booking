@@ -102,7 +102,10 @@
                         <div class="trek-block-one">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->featured_image) }}" alt="" title=""></a></div>
+                                    <div class="image">
+                                        <a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->featured_image) }}" alt="" title="" class="aspect-ratio-16-9">
+                                        </a>
+                                    </div>
                                     <div class="info">
                                         <span class="i-block">{{ $destination->location }}</span>
                                     </div>
@@ -214,10 +217,10 @@
                                 <div class="title"><h4>{{ $feat->tourPackage->name }}</h4></div>
                                 <div class="content">
                                     <div class="info">
-                                        <span class="i-block"><i class="icon far fa-clock"></i> {{ $feat->tourPackage->date   }}</span> &ensp;
+                                        <span class="i-block"><i class="icon far fa-clock"></i> {{ $feat->tourPackage->date }}</span> &ensp;
                                     </div>
-                                    <div class="price"><span>Rp. {{ $feat->tourPackage->price }}</span></div>
-                                    <div class="text">{!! $feat->tourPackage->description !!}</div>
+                                    <div class="price"><span>Rp. {{ number_format($feat->tourPackage->price) }}</span></div>
+                                    <div class="text">{!! str::limit($feat->tourPackage->description, 250) !!}</div>
                                     <div class="link-box"><a href="/checkout/{{ $feat->tourPackage->id }}" class="theme-btn btn-style-one"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt="" title=""></i></span></a></div>
                                 </div>
                             </div>

@@ -99,7 +99,11 @@
                         <div class="trek-block-one">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="/destination/{{ $destination->id }}"><img src="{{ asset('storage/'. $destination->featured_images) }}" alt="" title=""></a></div>
+                                    <div class="image">
+                                        <a href="/destination/{{ $destination->id }}">
+                                            <img src="{{ asset('storage/'. $destination->featured_images) }}" alt=""class="aspect-ratio-16-9">
+                                        </a>
+                                    </div>
                                     <div class="info">
                                         <span class="i-block">{{ $destination->location }}</span>
                                     </div>
