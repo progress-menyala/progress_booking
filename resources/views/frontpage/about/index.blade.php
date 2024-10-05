@@ -270,7 +270,10 @@
                         <div class="team-block-one">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="/organizers/{{ $org->id }}"><img src="{{ asset('storage/'. $org->image) }}" alt="" title=""></a></div>
+                                    <div class="image">
+                                        <a href="/organizers/{{ $org->id }}"><img src="{{ asset('storage/'. $org->image) }}" alt="" class="aspect-ratio-1-1">
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="lower-box">
                                     <h4><a href="#">{{ $org->name }}</a></h4>
