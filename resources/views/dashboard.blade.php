@@ -113,7 +113,7 @@
                                         <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star empty"></i></div>
                                         <div class="rev"><a href="#">05 Review</a></div>
                                     </div>
-                                    <div class="text">{{ $destination->description }}</div>
+                                    <div class="text">{{ Str::limit($destination->description, 100, '...') }}</div>
                                 </div>
                                 <div class="bottom-box clearfix">
                                     <div class="more-link"><a href="/destination/{{ $destination->id }}" class="theme-btn"><span>View Details <i class="icon"><img src="{{ asset('storage/images/icons/logo-icon.svg') }}" alt=""></i></span></a></div>

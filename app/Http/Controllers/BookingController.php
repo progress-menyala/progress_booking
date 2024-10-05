@@ -35,12 +35,14 @@ class BookingController extends Controller
         }    
 
         $booking = Booking::where('tour_package_id', $tour->id)->first();
+        
+        $btnDisable = 'true';
 
-        if ($booking && $booking->isValid()) {
-            $btnDisable = 'true';
+        if ($booking == null) {
+            $btnDisable = 'false';
         }
 
-        // dd($btnDisable);
+        // dd( $booking, $btnDisable);
 
         return view('frontpage.booking.cart', [
             'tour' => $tour,

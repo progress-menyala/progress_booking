@@ -153,7 +153,7 @@
                                     <input type="hidden" name="tour_package_id" value="{{ $tour->id ?? '' }}">
                                     <input type="hidden" name="payment_method_id" value="{{ $paymentMethod->id ?? '' }}">
                                     <input type="hidden" name="booking_date" value="{{ $bookingDate ?? now() }}">
-                                    @if ($btnDisable == true)
+                                    @if ($btnDisable === true)
                                         <button type="submit" class="theme-btn btn-style-two" disabled><span>Tidak Tersedia</span></button>
                                     @else   
                                         <button type="submit" class="theme-btn btn-style-two"><span>Checkout</span></button>
