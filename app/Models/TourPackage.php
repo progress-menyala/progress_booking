@@ -21,4 +21,9 @@ class TourPackage extends Model
     {
         return $this->hasMany(FeaturedTour::class, 'tour_packages_id');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

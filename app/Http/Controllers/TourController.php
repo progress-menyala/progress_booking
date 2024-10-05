@@ -7,6 +7,8 @@ use App\Models\TourPackage;
 use Illuminate\Http\Request;
 use App\Models\TourPackage as Tour;
 use App\Filament\Resources\TourPackageResource;
+use App\Models\Booking;
+use App\Models\Review;
 
 class TourController extends Controller
 {
@@ -41,7 +43,13 @@ class TourController extends Controller
     public function show(Tour $tour):View
     {
         $tours = TourPackage::all();
-        return view('frontpage.tours.detail',compact('tour', 'tours'));
+        $status = Booking::where('tour_package_id', $tour->id)->first();
+        $review = Review::where('tour_package_id', $tour->id)
+                ->orderBy('created_at', 'desc') // Urutkan berdasarkan yang terbaru
+                ->take(5) // Ambil hanya 5 data
+                ->get();
+        $averageRating = Review::where('tour_package_id', $tour->id)->avg('rating');
+        return view('frontpage.tours.detail',compact('tour', 'tours', 'status', 'review', 'averageRating'));
     }
 
 
@@ -67,5 +75,28 @@ class TourController extends Controller
     public function destroy(Tour $tour)
     {
         //
+    }
+
+    public function reviewSend(Request $request, Tour $tour)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'rating' => 'required',
+            'tour_package_id'=> 'required',
+            'message' => 'required',
+        ]);
+
+
+        Review::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'rating' => $validated['rating'],
+            'tour_package_id' => $validated['tour_package_id'],
+            'message' => $validated['message'],
+        ]);
+
+        return redirect()->back()->with('success','Comment Added');
+        
     }
 }

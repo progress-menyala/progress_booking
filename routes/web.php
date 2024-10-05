@@ -34,6 +34,7 @@ Route::get('/about/faq', [AboutController::class, 'faq'])->name('faq');
 
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/tours/{tour}', [TourController::class, 'show']);
+Route::post('/tours', [TourController::class, 'reviewSend'])->name('review.send');
 
 Route::get('/organizers', [OrganizersController::class, 'index']);
 Route::get('/organizers/{id}', [OrganizersController::class, 'show']);

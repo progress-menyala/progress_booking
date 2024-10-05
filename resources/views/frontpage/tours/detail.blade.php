@@ -21,34 +21,44 @@
 
                                     </div>
                                 </div>
-                                {{-- <div class="pagers-box">
+                                <div class="pagers-box">
                                     <div class="pager-two clearfix">
                                         <a href="" class="pager-item active" data-slide-index="0"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-1.jpg') }}" alt=""></div></a>
                                         <a href="" class="pager-item" data-slide-index="1"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-2.jpg') }}" alt=""></div></a>
                                         <a href="" class="pager-item" data-slide-index="2"><div class="image"><img src="{{ asset('storage/images/resource/shop/shop-thumb-3.jpg') }}" alt=""></div></a>
                                     </div>
-                                </div> --}}
+                                </div>
                                 
                             </div>
                         </div>
                     </div>
                     <div class="content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="product-details-content">
-                            <div class="avail"><span>Available</span></div>
+                            <div class="avail">
+                                <span>{{ $status == null ? 'Available' : 'Not Available' }}</span>
+                            </div>
                             <h4>{{ $tour->name }}</h4>
                             <ul class="rating-box clearfix p-0">
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
+                                @for ($i = 0; $i < $averageRating; $i++)
+                                    
+                                    <li><i class="fas fa-star"></i></li>
+                                @endfor
                             </ul>
-                            <div class="item-price"><span>Rp. {{ $tour->price }}</span></div>
+                            <div class="item-price"><span>Rp. {{ number_format($tour->price) }}</span></div>
                             {{-- <div class="share"><a href="shop-single.html"><i class="flaticon-share-1"></i></a></div> --}}
                             <div class="text">{!! $tour->description  !!}</div>
                             <div class="other-options clearfix">
                                 <div class="link-box">
-                                    <a href="/checkout/{{ $tour->id }}" type="button" class="theme-btn btn-style-two"><span><i class="far fa-shopping-cart me-2"></i>Buy Tour</span></a>
+                                    @if ($status == null)
+                                        <a href="/checkout/{{ $tour->id }}" type="button" class="theme-btn btn-style-two">
+                                            <span><i class="far fa-shopping-cart me-2"></i>Buy Tour</span>
+                                        </a>  
+                                    @else
+                                        <button  class="theme-btn btn-style-two btn-disabled">
+                                            <span><i class="far fa-shopping-cart me-2"></i>Not Available</span>
+                                        </button>  
+                                    @endif
+                                    
                                     {{-- <button type="button" class="theme-btn add-wishlist"><span><i class="far fa-heart"></i> &ensp; Add to wishlist</span></button> --}}
                                 </div>
                             </div>
@@ -63,7 +73,7 @@
                     <div class="tab-btn-box centred">
                         <ul class="tab-btns tab-buttons">
                             <li class="tab-btn active-btn" data-tab="#tab-1">Description</li>
-                            <li class="tab-btn" data-tab="#tab-2">REVIEWS (1)</li>
+                            <li class="tab-btn" data-tab="#tab-2">REVIEWS ({{ count($review) }})</li>
                         </ul>
                     </div>
                     <div class="tabs-content">
@@ -77,56 +87,68 @@
                         </div>
                         <div class="tab" id="tab-2">
                             <div class="customer-comment">
-                                <div class="comment">
-                                    <figure class="customer-thumb"><img src="{{ asset('storage/images/resource/shop/rev-thumb-shop.png') }}" alt=""></figure>
-                                    <div class="info clearfix">
-                                        <h6>Admin - </h6>
-                                        <span>April 02, 2022</span>
+                                @foreach ($review as $r)       
+                                    <div class="comment">
+                                        <figure class="customer-thumb"><img src="{{ asset('storage/images/resource/shop/rev-thumb-shop.png') }}" alt=""></figure>
+                                        <div class="info clearfix">
+                                            <h6>{{ $r->name }}</h6>
+                                            <span>{{ $r->created_at->diffForHumans() }}</span>
+                                        </div>
+                                        <ul class="rating clearfix"> 
+                                            @for ($i = 0; $i < $r->rating; $i++)
+                                                <li><i class="fas fa-star"></i></li>
+                                            @endfor
+                                        </ul>
+                                        <p>{{ $r->message }}</p>
                                     </div>
-                                    <ul class="rating clearfix"> 
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star empty"></i></li>
-                                    </ul>
-                                    <p>Since 2014, we’ve helped more than 500,000 people of all ages enjoy the best outdoor experience of their lives. Whether it’s for one day or a two-week vacation, close to home or a foreign land.</p>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="reply-box">
                                 <h5>Add a review</h5>
                                 <div class="reply-inner">
                                     <div class="default-form site-form">
-                                        <form method="post" action="contact.html">
+                                        <form method="post" action="{{ route('review.send') }}">
+                                            @csrf
+                                            <input type="hidden" name="tour_package_id" value="{{ $tour->id }}">
                                             <div class="row clearfix">
                                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                     <div class="f-label">Your Rating*</div>
-                                                    <div class="field-inner">
-                                                        <a class="add-rating theme-btn"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a>
-                                                    </div>
+                                                    <select class="form-select" aria-label="Default select example" name="rating">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Buruk</option>
+                                                        <option value="2">Cukup</option>
+                                                        <option value="3">Bagus</option>
+                                                        <option value="4">Sangat Bagus</option>
+                                                        <option value="5">Bagus Sekali</option>
+                                                      </select>
                                                 </div>
                                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                     <div class="f-label">Your Review*</div>
                                                     <div class="field-inner">
-                                                        <textarea name="fieldname" placeholder="" required></textarea>
+                                                        <textarea name="message" placeholder="" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                                     <div class="f-label">Your Name*</div>
                                                     <div class="field-inner">
-                                                        <input type="text" name="fieldname" value="" placeholder="" required>
+                                                        <input type="text" name="name" value="" placeholder="" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                                     <div class="f-label">Your Email*</div>
                                                     <div class="field-inner">
-                                                        <input type="email" name="fieldname" value="" placeholder="" required>
+                                                        <input type="email" name="email" value="" placeholder="" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                                     <button type="submit" class="theme-btn btn-style-two"><span>Post Comment<i class="icon far fa-angle-right"></i></span></button>
                                                 </div>
+                                                @if (session('success'))
+                                                    <div class="alert alert-success" role="alert">
+                                                        {{ session('success') }}
+                                                    </div>  
+                                                @endif
                                             </div>
                                         </form>
                                     </div>
@@ -157,7 +179,10 @@
                             <div class="inner-box">
                                 <div class="why-block">
                                     <div class="image-box">
-                                        <div class="image"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt=""></a></div>
+                                        <div class="image">
+                                            <a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt="" class="aspect-ratio-1-1">
+                                            </a>
+                                        </div>
                                         <div class="hvr-box">
                                             <div class="hvr-inner">
                                                 <div class="hvr-content">
@@ -170,7 +195,7 @@
                                     </div>
                                     <div class="lower-box">
                                         <h5><a href="/tours/{{ $tour->id }}">{{ $tour->name }}</a></h5>
-                                        <div class="price"><span>Rp. {{ $tour->price }}</span></div>
+                                        <div class="price"><span>Rp. {{ number_format($tour->price) }}</span></div>
                                     </div>
                                 </div>
 
