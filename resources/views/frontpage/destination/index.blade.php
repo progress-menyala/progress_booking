@@ -19,7 +19,10 @@
                         <div class="trend-block-one mix all africa australia col-xl-4 col-lg-6 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <div class="image"><a href="#"><img src="{{ asset('storage/' . $destination->featured_image) }}" alt="" title=""></a></div>
+                                    <div class="image">
+                                        <a href="#"><img src="{{ asset('storage/' . $destination->featured_image) }}" alt="" title="" class="aspect-ratio-16-9 object-fit-cover">
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="count"><span>Available</span></div>
                                 <div class="title clearfix">

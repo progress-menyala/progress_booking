@@ -7,17 +7,7 @@
 		<div class="auto-container">
 			<div class="row clearfix">
 				<!-- Content Column -->
-				<div class="content-column col-xl-8 col-lg-7 col-md-12 col-sm-12">
-					
-					<!-- Upper Box -->
-					<div class="upper-box">
-						<div class="clearfix">
-							<div class="pull-left">
-								<h4>Discover {{ $destination->name }}</h4>
-							</div>
-						</div>
-					</div>
-					
+				<div class="content-column col-xl-8 col-lg-7 col-md-12 col-sm-12">	
 					<!-- Package Info Box -->
 					{{-- <div class="package-info-box style-two">
 						<div class="inner-container d-flex justify-content-between align-items-center">
@@ -57,14 +47,7 @@
 					<div class="rating-box">
 						<div class="clearfix">
 							<div class="pull-left">
-								<div class="rating">
-									(5 review) &nbsp;
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</div>
+								<h4 class="fw-bold">{{$destination->id.'. '.  $destination->name }}</h4>
 							</div>
 							<div class="pull-right">
 								<ul class="post-info">
