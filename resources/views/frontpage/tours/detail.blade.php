@@ -37,10 +37,9 @@
                             <div class="avail">
                                 <span>{{ $status == null ? 'Available' : 'Not Available' }}</span>
                             </div>
-                            <h4>{{ $tour->name }}</h4>
+                            <h4 class="mb-0">{{ $tour->name }}</h4>
                             <ul class="rating-box clearfix p-0">
                                 @for ($i = 0; $i < $averageRating; $i++)
-                                    
                                     <li><i class="fas fa-star"></i></li>
                                 @endfor
                             </ul>

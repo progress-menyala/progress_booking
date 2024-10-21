@@ -90,11 +90,11 @@
                                 <div class="order-summary">
                                     <ul>
                                         <li class="sum-head clearfix"><span class="ttl">Tour Packages</span> <span class="dtl">Subtotal</span></li>
-                                        <li class="prod clearfix"><span class="ttl">{{ $tour->name }}</span> <span class="dtl" id="price" value="{{ $booking->price }}">Rp. {{ $booking->sub_total }}</span></li>
+                                        <li class="prod clearfix"><span class="ttl">{{ $tour->name }}</span> <span class="dtl" id="price" value="{{ $booking->price }}">Rp. {{ number_format($booking->sub_total) }}</span></li>
                                         <li class="prod clearfix"><span class="ttl">Pajak</span> <span class="dtl" id="tax">{{ $booking->tax }} %</span></li>
                                         <li class="prod clearfix"><span class="ttl">Fee Payment</span> <span class="dtl" id="fee">{{ $booking->payment_fee }} %</span></li>
                                         <li class="prod clearfix"><span class="ttl">Admin Payment</span> <span class="dtl" id="fee">{{ $booking->admin_fee }} %</span></li>
-                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">Rp. {{ $booking->grand_total }} </span></li>                                        
+                                        <li class="g-total clearfix"><span class="ttl">Total</span> <span class="dtl" id="total">Rp. {{ number_format($booking->grand_total) }} </span></li>                                        
                                     </ul>
                                 </div>
                                 <!--Payment Options-->

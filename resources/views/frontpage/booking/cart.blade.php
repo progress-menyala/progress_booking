@@ -25,14 +25,14 @@
                             <tbody>
                                 <tr>
                                     <td colspan="2" class="prod-column">
-                                        <div class="column-box">
+                                        <div class="column-box pt-0">
                                             <figure class="prod-thumb"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/'. $tour->image) }}" alt=""></a></figure>
                                             <h4 class="prod-title">{{ $tour->name }}</h4>
                                             <p>Date : {{ $tour->date }}</p>
-                                            <p>Description : {{ $tour->description }}</p>
+                                            <p>Description : {!! $tour->description !!}</p>
                                         </div>
                                     </td>
-                                    <td class="price">Rp. {{ $tour->price }}</td>
+                                    <td class="price">Rp. {{ number_format($tour->price) }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -70,7 +70,7 @@
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                         <div class="f-label">Name<i>*</i></div>
                                         <div class="field-inner">
-                                            <input type="text" name="customer_name" value="" placeholder="">
+                                            <input type="text" name="customer_name" value="" placeholder="" required>
                                         </div>
                                     </div>
                 
@@ -78,7 +78,7 @@
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                         <div class="f-label">Email</div>
                                         <div class="field-inner">
-                                            <input type="email" name="customer_email" value="" placeholder="">
+                                            <input type="email" name="customer_email" value="" placeholder="" required>
                                         </div>
                                     </div>
                 
@@ -87,7 +87,7 @@
                                         <div class="f-label">Phone Number<i>*</i></div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">+62</span>
-                                            <input type="text" class="form-control" placeholder="85829161701" aria-label="Username" aria-describedby="basic-addon1" style="width:auto" name="phone_number">
+                                            <input type="text" class="form-control" placeholder="85829161701" aria-label="Username" aria-describedby="basic-addon1" style="width:auto" name="phone_number" required>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                             <span class="col col-title">Total</span>
                                             <span class="col total-price">
                                                 Rp. <span x-text="total.toFixed(2)"></span>
-                                                <input type="hidden" x-model="total" readonly name="grand_total" value="177000">
+                                                <input type="hidden" x-model="total" readonly name="grand_total">
                                             </span>
                                         </li>
                                     </div>
