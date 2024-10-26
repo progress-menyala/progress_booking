@@ -22,7 +22,7 @@
                             <div class="why-block">
                                 <div class="image-box">
                                     <div class="image">
-                                        <a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image) }}" alt="" class="aspect-ratio-16-9">
+                                        <a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/' . $tour->image[0]) }}" alt="" class="aspect-ratio-16-9">
                                         </a>
                                     </div>
                                     <div class="hvr-box">

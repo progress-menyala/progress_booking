@@ -26,7 +26,7 @@
                                 <tr>
                                     <td colspan="2" class="prod-column">
                                         <div class="column-box pt-0">
-                                            <figure class="prod-thumb"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/'. $tour->image) }}" alt=""></a></figure>
+                                            <figure class="prod-thumb"><a href="/tours/{{ $tour->id }}"><img src="{{ asset('storage/'. $tour->image[0]) }}" alt=""></a></figure>
                                             <h4 class="prod-title">{{ $tour->name }}</h4>
                                             <p>Date : {{ $tour->date }}</p>
                                             <p>Description : {!! $tour->description !!}</p>

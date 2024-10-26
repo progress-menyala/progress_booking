@@ -17,7 +17,7 @@ class OrganizerProfileResource extends Resource
 {
     protected static ?string $model = OrganizerProfile::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -84,11 +84,15 @@ class OrganizerProfileResource extends Resource
                     ->nullable(),
                 Forms\Components\RichEditor::make('about')
                     ->label('About Organizer')
-                    ->nullable(),
+                    ->nullable()
+                    ->columnSpanFull(),
+
                 Forms\Components\FileUpload::make('image')
-                    ->image()
                     ->directory('images/organizer_profiles')
-                    ->required(),
+                    ->openable()
+                    ->image() // Ini sudah mengonfirmasi bahwa hanya gambar yang bisa diunggah
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/gif']) // Menambahkan validasi tipe file
+                    ->columnSpanFull(),
             ]);
     }
 

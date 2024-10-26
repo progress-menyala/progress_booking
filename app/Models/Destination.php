@@ -9,12 +9,20 @@ class Destination extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
-    // public function registerMediaCollections(): void
-    // {
-    //     $this->addMediaCollection('images')->useDisk('public')->singleFile();
-    // }
+    protected $fillable = [
+        'user_id',
+        'name',
+        'slug',
+        'location',
+        'capacity',
+        'description',
+        'maps',
+        'featured_image', 
+        'images',
+        'opening_hours',
+        'status',
+        'contact_info',
+    ];
 
     protected $casts = [
         'images' => 'array',

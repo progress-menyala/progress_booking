@@ -18,7 +18,7 @@ class DestinationPhotoResource extends Resource
 {
     protected static ?string $model = DestinationPhoto::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {
@@ -29,10 +29,17 @@ class DestinationPhotoResource extends Resource
                     ->relationship('destination', 'name')
                     ->required(),
                 Forms\Components\FileUpload::make('photo_url')
-                    ->image()
+                    ->label('Photo')
                     ->directory('images/destinations')
-                    ->required()
-                    ->columnSpanFull()
+                    ->openable()
+                    ->multiple()
+                    ->maxSize(2048)
+                    ->reorderable()
+                    ->appendFiles()
+                    ->image() // Ini sudah mengonfirmasi bahwa hanya gambar yang bisa diunggah
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/gif']) // Menambahkan validasi tipe file
+                    ->image()
+                    ->columnSpanFull(),
             ]);
     }
 

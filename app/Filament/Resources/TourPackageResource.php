@@ -17,7 +17,7 @@ class TourPackageResource extends Resource
 {
     protected static ?string $model = TourPackage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-credit-card';
 
     public static function form(Form $form): Form
     {
@@ -44,17 +44,21 @@ class TourPackageResource extends Resource
                     ->label('Date'),
                     
                 Forms\Components\RichEditor::make('facilities')
-                    ->required(),
-
+                    ->required()
+                    ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('description')
                     ->label('Description')
-                    ->required(),    
+                    ->required()
+                    ->columnSpanFull(),    
 
                 Forms\Components\FileUpload::make('image')
-                    ->image()
                     ->directory('images/tour_packages')
-                    ->required(),
+                    ->openable()
+                    ->multiple()
+                    ->image() 
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/gif']) // Menambahkan validasi tipe file
+                    ->columnSpanFull(),
 
 
             ]);

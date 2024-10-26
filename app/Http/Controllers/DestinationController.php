@@ -41,7 +41,7 @@ class DestinationController extends Controller
     public function show(Destination $destination)
     {
         // dd($destination);
-        $destinationPhoto = DestinationPhoto::where('destination_id', $destination->id)->get();
+        $destinationPhoto = DestinationPhoto::where('destination_id', $destination->id)->first();
         // dd($destinationPhoto);
         return view('frontpage.destination.show', [
             'destination' => $destination,

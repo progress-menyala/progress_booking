@@ -8,41 +8,6 @@
 			<div class="row clearfix">
 				<!-- Content Column -->
 				<div class="content-column col-xl-8 col-lg-7 col-md-12 col-sm-12">	
-					<!-- Package Info Box -->
-					{{-- <div class="package-info-box style-two">
-						<div class="inner-container d-flex justify-content-between align-items-center">
-							
-							<!-- Package Info Block -->
-							<div class="package-info-block">
-								<div class="inner-box">
-									<div class="icon"><img src="{{ asset('storage/images/icons/duration.svg') }}" alt="" /></div>
-									<strong>Duration</strong>
-									4 Days
-								</div>
-							</div>
-							
-							<!-- Package Info Block -->
-							<div class="package-info-block">
-								<div class="inner-box">
-									<div class="icon"><img src="{{ asset('storage/images/icons/category-icon.svg') }}" alt="" /></div>
-									<strong>Category</strong>
-									Family Trip
-								</div>
-							</div>
-							
-							<!-- Package Info Block -->
-							<div class="package-info-block">
-								<div class="inner-box">
-									<div class="icon"><img src="{{ asset('storage/images/icons/team-group.svg') }}" alt="" /></div>
-									<strong>Group Size</strong>
-									30 Person
-								</div>
-							</div>
-							
-						</div>
-					</div> --}}
-					<!-- End Package Info Box -->
-					
 					<!-- Rating Box -->
 					<div class="rating-box">
 						<div class="clearfix">
@@ -62,16 +27,6 @@
 					
 					<h5>About {{ $destination->name }}</h5>
 					<p>{!! $destination->description !!}</p>
-					{{-- <div class="feature-box">
-						<h5>Features</h5>
-						<ul class="feature-list">
-							<li>Free Download Instagram Logo</li>
-							<li>Illustrator from Instagram Logo 9 Vectors svg vector collection</li>
-							<li>Vectors SVG vector illustration graphic art design format.</li>
-							<li>Following vectors are from the same pack as this vector also</li>
-							<li>Instagram Logo SVG Vector is a part of Social Websites</li>
-						</ul>
-					</div> --}}
 					<div class="facility-box">
 						<h5>Facilities</h5>
 						<div class="row clearfix">
@@ -155,11 +110,10 @@
 					<div class="gallery-box">
 						<h5>Gallery</h5>
 						<div class="single-item-carousel owl-carousel owl-theme">
-							@foreach ($photos as $photo)
-							{{-- @dd($photos) --}}
+							@foreach ($photos->photo_url as $img)
 								<div class="slide">
 									<div class="image">
-										<img src="{{ asset('storage/' . $photo->photo_url) }}" alt="" />
+										<img src="{{ asset('storage/' . $img) }}" alt="" />
 									</div>
 								</div>
 							@endforeach	

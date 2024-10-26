@@ -9,7 +9,25 @@ class OrganizerProfile extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'user_id',
+        'email',
+        'phone',
+        'address',
+        'city',
+        'state',
+        'zip',
+        'country',
+        'website',
+        'facebook',
+        'twitter',
+        'linkedin',
+        'instagram',
+        'youtube',
+        'about',
+        'image',
+    ];  
 
     public function user()
     {

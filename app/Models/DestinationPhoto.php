@@ -9,7 +9,14 @@ class DestinationPhoto extends Model
 {
     use HasFactory;
 
-    protected $guarded=['id'];
+    protected $fillable = [
+        'destination_id',
+        'photo_url',
+    ];
+
+    protected $casts = [
+        'photo_url' => 'array',
+    ];
 
     public function destination()
     {

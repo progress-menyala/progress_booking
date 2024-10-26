@@ -10,7 +10,19 @@ class TourPackage extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        "name",
+        "organizer_profiles_id",
+        "price",
+        "date",
+        "facilities",
+        "description",
+        "image"
+    ];
+
+    protected $casts = [
+        'image' => 'array',
+    ];
 
     public function organizer_profiles()
     {

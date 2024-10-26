@@ -7,6 +7,7 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use App\Models\Destination;
+use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
@@ -21,7 +22,7 @@ class DestinationResource extends Resource
 {
     protected static ?string $model = Destination::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
 
     public static function form(Form $form): Form
     {
@@ -30,27 +31,40 @@ class DestinationResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'id')
                     ->relationship('user', 'name')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
+
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->reactive() // ini biar field bisa di-update secara otomatis
+                    ->debounce(500) // kasih delay 500ms
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Generate slug dari name
+                        $set('slug', Str::slug($state));
+                    }),
+                
+                Forms\Components\TextInput::make('slug')
+                    ->required(),
                 Forms\Components\TextInput::make('location')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('capacity')
                     ->required()
                     ->numeric(),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\RichEditor::make('description')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('maps')
-                    ->required(),
-                Forms\Components\TextInput::make('slug')
-                    ->required(),
+                    ->required()
+                    ->label('Google Maps Embed URL')
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('featured_image')
-                    ->image()
                     ->directory('images/destinations')
-                    ->required(),
+                    ->openable()
+                    ->image() // Ini sudah mengonfirmasi bahwa hanya gambar yang bisa diunggah
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/gif']) // Menambahkan validasi tipe file
+                    ->columnSpanFull(),
 
                 Select::make('status')
                     ->options([
